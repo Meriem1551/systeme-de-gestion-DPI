@@ -15,21 +15,19 @@ from PIL import Image
 from .serializers import SearchDPIByNSSSerializer
 from .serializers import QRSearchSerializer
 class DPICreationView(APIView):
-    def post(self, request):
+    def post(self, request, *args, **kwargs):
         serializer = DPICreationSerializer(data=request.data)
         if serializer.is_valid():
             dpi = serializer.save()
             return Response(
                 {
-                    "message": "DPI créé avec succès",
+                    "message": "DPI created successfully",
                     "dpi_id": dpi.id_dpi,
-                    "qr_code_url": dpi.qr_code.url,  # Retourner l'URL du QR code
+                    "qr_code": dpi.qr_code.url,  # URL of the generated QR code
                 },
                 status=status.HTTP_201_CREATED
             )
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
 class QRCodeView(APIView):
     def get(self, request, dpi_id):
         # Récupérer le DPI par son ID
@@ -51,8 +49,22 @@ class SearchDPIByNSSView(APIView):
         try:
             # Retrieve the patient using the NSS
             patient = Patient.objects.get(NSS=nss)
+
             # Retrieve the associated DPI
             dpi = DPI.objects.get(patient=patient)
+
+            # Prepare patient details
+            patient_details = {
+                "id_patient": patient.id_patient,
+                "nom_patient": patient.utilisateur.first_name,
+                "prenom_patient": patient.utilisateur.last_name,
+                "nss": patient.NSS,
+                "date_de_naissance": patient.date_de_naissance,
+                "adresse": patient.adresse,
+                "telephone": patient.telephone,
+                "mutuelle": patient.mutuelle,
+                "personne_a_contacter": patient.personne_a_contacter
+            }
 
             # Prepare response data
             response_data = {
@@ -60,6 +72,10 @@ class SearchDPIByNSSView(APIView):
                 "antecedents": dpi.antecedents,
                 "qr_code_url": dpi.qr_code.url if dpi.qr_code else None,
             }
+
+            # Combine patient details and DPI details
+            response_data.update(patient_details)
+
             return Response(response_data, status=status.HTTP_200_OK)
 
         except Patient.DoesNotExist:
@@ -68,8 +84,7 @@ class SearchDPIByNSSView(APIView):
         except DPI.DoesNotExist:
             return Response({"error": "DPI not found for this patient."}, status=status.HTTP_404_NOT_FOUND)
 
-
-class QRCodeSearchView(APIView):
+class QRCodeScanView(APIView):
     # Allow image file upload
     parser_classes = (MultiPartParser, FormParser)
 
@@ -89,20 +104,42 @@ class QRCodeSearchView(APIView):
             if not decoded_objects:
                 return Response({"error": "No QR code found in the image."}, status=status.HTTP_400_BAD_REQUEST)
 
-            # Extract DPI ID from decoded QR code data (assuming it's in the QR code)
-            dpi_id = decoded_objects[0].data.decode('utf-8')
+            # Extract the NSS from the decoded QR code data
+            nss = decoded_objects[0].data.decode('utf-8')  # Get the decoded NSS
 
+            # Retrieve the corresponding patient using the decoded NSS
             try:
-                # Retrieve the corresponding DPI record using the decoded ID
-                dpi = DPI.objects.get(id_dpi=dpi_id)
+                patient = Patient.objects.get(NSS=nss)  # Get the patient by NSS
 
-                # Serialize the DPI data using the new serializer
-                serializer = QRSearchSerializer(dpi)  # Updated serializer name
+                # Now, retrieve the associated DPI for that patient
+                dpi = DPI.objects.get(patient=patient)
 
-                return Response(serializer.data, status=status.HTTP_200_OK)
+                # Serialize the DPI data along with the Patient details
+                serializer = QRSearchSerializer(dpi)
 
+                # Get Patient details
+                patient_details = {
+                    "id_patient": patient.id_patient,
+                    "nom_patient": patient.utilisateur.first_name,
+                    "prenom_patient": patient.utilisateur.last_name,
+                    "nss": patient.NSS,
+                    "date_de_naissance": patient.date_de_naissance,
+                    "adresse": patient.adresse,
+                    "telephone": patient.telephone,
+                    "mutuelle": patient.mutuelle,
+                    "personne_a_contacter": patient.personne_a_contacter
+                }
+
+                # Add patient details to DPI response
+                response_data = serializer.data
+                response_data.update(patient_details)
+
+                return Response(response_data, status=status.HTTP_200_OK)
+
+            except Patient.DoesNotExist:
+                return Response({"error": "Patient not found for this QR code."}, status=status.HTTP_404_NOT_FOUND)
             except DPI.DoesNotExist:
-                return Response({"error": "DPI not found for this QR code."}, status=status.HTTP_404_NOT_FOUND)
+                return Response({"error": "DPI not found for this patient."}, status=status.HTTP_404_NOT_FOUND)
 
         except Exception as e:
             return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

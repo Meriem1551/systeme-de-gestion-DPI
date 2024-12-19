@@ -7,6 +7,13 @@ import qrcode
 from io import BytesIO
 from django.core.files.base import ContentFile
 
+
+from io import BytesIO
+from django.core.files.base import ContentFile
+import qrcode
+import uuid  # To ensure a unique filename
+from django.db import IntegrityError
+
 class DPICreationSerializer(serializers.Serializer):
     nom_patient = serializers.CharField(max_length=100)
     prenom_patient = serializers.CharField(max_length=100)
@@ -17,7 +24,7 @@ class DPICreationSerializer(serializers.Serializer):
     mutuelle = serializers.CharField(max_length=100)
     personne_a_contacter = serializers.CharField(max_length=100)
     nom_medecin = serializers.CharField(max_length=100)
-    antecedents = serializers.CharField(allow_blank=True, default="")  # Nouveau champ pour les antécédents
+    antecedents = serializers.CharField(allow_blank=True, default="")
 
     def validate(self, data):
         # Recherche du patient
@@ -45,7 +52,7 @@ class DPICreationSerializer(serializers.Serializer):
         return data
 
     def create(self, validated_data):
-        # Création du patient
+        # Create the patient record
         patient = Patient.objects.create(
             utilisateur=validated_data['utilisateur_patient'],
             NSS=validated_data['nss'],
@@ -56,31 +63,33 @@ class DPICreationSerializer(serializers.Serializer):
             personne_a_contacter=validated_data['personne_a_contacter']
         )
 
-        # Recherche ou création du médecin
+        # Retrieve or create the doctor record
         medecin, created = Medecin.objects.get_or_create(
             utilisateur=validated_data['utilisateur_medecin']
         )
 
-        # Création du DPI avec les antécédents fournis
+        # Create the DPI object
         dpi = DPI.objects.create(
             patient=patient,
             medecin=medecin,
-            antecedents=validated_data.get("antecedents", "")  # Ajouter les antécédents ici
+            antecedents=validated_data.get("antecedents", "")
         )
 
-        # Génération et sauvegarde du QR code
-        qr = qrcode.QRCode(version=1, box_size=10, border=5)
-        qr.add_data(str(dpi.id_dpi))  # Ajoutez l'ID du DPI au QR code
-        qr.make(fit=True)
-
-        img = qr.make_image(fill="black", back_color="white")
-        buffer = BytesIO()
-        img.save(buffer, format="PNG")
-        file_name = f"dpi_{dpi.id_dpi}_qrcode.png"
-        dpi.qr_code.save(file_name, ContentFile(buffer.getvalue()), save=False)
-        dpi.save()
+        # QR code is generated automatically when the DPI is saved
+        dpi.save()  # Save will trigger QR code generation
 
         return dpi
+
+
+class PatientSerializer(serializers.ModelSerializer):
+    nom_patient = serializers.CharField(source='utilisateur.first_name')
+    prenom_patient = serializers.CharField(source='utilisateur.last_name')
+
+    class Meta:
+        model = Patient
+        fields = ['nom_patient', 'prenom_patient', 'NSS', 'date_de_naissance', 'adresse', 'telephone', 'mutuelle',
+                  'personne_a_contacter']
+
 
 class QRCodeSerializer(serializers.ModelSerializer):
     qr_code_url = serializers.SerializerMethodField()
@@ -107,11 +116,6 @@ class SearchDPIByNSSSerializer(serializers.Serializer):
         return value
 
 class QRSearchSerializer(serializers.ModelSerializer):
-    qr_code_url = serializers.SerializerMethodField()
-
     class Meta:
         model = DPI
-        fields = ['id_dpi', 'antecedents', 'qr_code_url']
-
-    def get_qr_code_url(self, obj):
-        return obj.qr_code.url if obj.qr_code else None
+        fields = ['id_dpi', 'patient', 'medecin', 'antecedents', 'qr_code']

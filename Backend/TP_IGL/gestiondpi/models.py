@@ -1,13 +1,15 @@
 
 from django.db import models
 from authentification.models import User
-
+import qrcode
+import uuid
+from io import BytesIO
+from django.core.files.base import ContentFile
 
 class Patient(models.Model):
     id_patient = models.AutoField(primary_key=True)
     utilisateur = models.OneToOneField(User, on_delete=models.CASCADE)
     NSS = models.CharField(max_length=20, unique=True)
-    codeQR = models.CharField(max_length=255, unique=True)
     date_de_naissance = models.DateField()
     adresse = models.TextField()
     telephone = models.CharField(max_length=15)
@@ -52,12 +54,35 @@ class PharmacienHospitalier(models.Model):
 
 class DPI(models.Model):
     id_dpi = models.AutoField(primary_key=True)
-    patient = models.OneToOneField(Patient, on_delete=models.CASCADE, default=1)
-    medecin = models.ForeignKey(Medecin, related_name="medcin", on_delete=models.CASCADE, default=1)
-    antecedents = models.TextField()
-    qr_code = models.ImageField(upload_to='qrcodes/', blank=True, null=True)  # Champ pour stocker le QR code
+    patient = models.OneToOneField(Patient, on_delete=models.CASCADE , default=1)
+    medecin = models.ForeignKey(Medecin, related_name="medcin", on_delete=models.CASCADE , default=1)
+    antecedents = models.TextField(blank=True)
+    qr_code = models.ImageField(upload_to='qrcodes/', unique=True )
 
+    def save(self, *args, **kwargs):
+        # Generate QR code when saving the DPI
+        if not self.qr_code:  # Check if QR code isn't already assigned
+            self.generate_qr_code()
+        super().save(*args, **kwargs)
 
+    def generate_qr_code(self):
+        """Generates and saves a unique QR code based on the patient's NSS."""
+        qr = qrcode.QRCode(version=1, box_size=10, border=5)
+        qr.add_data(self.patient.NSS)  # Encode NSS into QR code
+        qr.make(fit=True)
+
+        img = qr.make_image(fill="black", back_color="white")
+        buffer = BytesIO()
+        img.save(buffer, format="PNG")
+
+        # Generate a unique filename using uuid
+        unique_filename = f"nss_qrcode_{uuid.uuid4().hex}.png"
+
+        # Ensure the QR code is unique by checking if the file exists
+        while DPI.objects.filter(qr_code=unique_filename).exists():
+            unique_filename = f"nss_qrcode_{uuid.uuid4().hex}.png"
+
+        self.qr_code.save(unique_filename, ContentFile(buffer.getvalue()), save=False)
 
 class Consultation(models.Model):
     id_consultation = models.AutoField(primary_key=True)
