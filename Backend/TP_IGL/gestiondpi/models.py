@@ -76,7 +76,7 @@ class DPI(models.Model):
             unique_filename = f"nss_qrcode_{uuid.uuid4().hex}.png"
 
         self.qr_code.save(unique_filename, ContentFile(buffer.getvalue()), save=False)
-
+#comment
 class Resume(models.Model):
     diagnostic = models.TextField(blank=True, null=True)
     symptomes = models.TextField(blank=True, null=True)
