@@ -46,42 +46,36 @@ class PharmacienHospitalier(models.Model):
         ordonnance.save()
         
 class DPI(models.Model):
-id_dpi = models.AutoField(primary_key=True)
-    patient = models.OneToOneField('Patient', on_delete=models.CASCADE, default=1)
-    medecin = models.ForeignKey('Medecin', related_name="medcin", on_delete=models.CASCADE, default=1)
+    id_dpi = models.AutoField(primary_key=True)
+    patient = models.OneToOneField(Patient, on_delete=models.CASCADE , default=1)
+    medecin = models.ForeignKey(Medecin, related_name="medcin", on_delete=models.CASCADE , default=1)
     antecedents = models.TextField(blank=True)
-    qr_code = models.ImageField(upload_to='qrcodes/', unique=True , default='default_qr')
+    qr_code = models.ImageField(upload_to='qrcodes/', unique=True, default='default_qr')
 
     def save(self, *args, **kwargs):
-        # Génère le QR code avant de sauvegarder
-        if not self.qr_code:  # Vérifie si un QR code n'a pas déjà été assigné
+        # Generate QR code when saving the DPI
+        if not self.qr_code:  # Check if QR code isn't already assigned
             self.generate_qr_code()
         super().save(*args, **kwargs)
 
     def generate_qr_code(self):
-        """Génère et sauvegarde un QR code unique basé sur le NSS du patient."""
-        if not self.patient or not self.patient.NSS:
-            raise ValueError("Le NSS du patient est requis pour générer un QR code.")
-
-        # Récupérer le prénom et le nom du patient
-        nom_patient = self.patient.utilisateur.last_name
-        prenom_patient = self.patient.utilisateur.first_name
-
-        # Génération du QR code
+        """Generates and saves a unique QR code based on the patient's NSS."""
         qr = qrcode.QRCode(version=1, box_size=10, border=5)
-        qr.add_data(self.patient.NSS)  # Encode le NSS dans le QR code
+        qr.add_data(self.patient.NSS)  # Encode NSS into QR code
         qr.make(fit=True)
 
-        img = qr.make_image(fill_color="black", back_color="white")
+        img = qr.make_image(fill="black", back_color="white")
         buffer = BytesIO()
         img.save(buffer, format="PNG")
 
-        # Génère un chemin unique pour le fichier avec prénom et nom
-        unique_filename = f"qrcodes/{nom_patient}_{prenom_patient}_{self.patient.NSS}_qrcode_{uuid.uuid4().hex}.png"
+        # Generate a unique filename using uuid
+        unique_filename = f"nss_qrcode_{uuid.uuid4().hex}.png"
 
-        # Enregistre l'image générée dans le champ qr_code
+        # Ensure the QR code is unique by checking if the file exists
+        while DPI.objects.filter(qr_code=unique_filename).exists():
+            unique_filename = f"nss_qrcode_{uuid.uuid4().hex}.png"
+
         self.qr_code.save(unique_filename, ContentFile(buffer.getvalue()), save=False)
-
 #comment
 class Resume(models.Model):
     diagnostic = models.TextField(blank=True, null=True)
