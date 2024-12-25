@@ -124,23 +124,6 @@ class QRCodeScanView(APIView):
 ############################################"AFFICHAGE####################################################
 
 
-class ConsultDPIView(APIView):
-    def get(self, request, utilisateur_id):
-        # Récupérer le patient associé à l'utilisateur
-        try:
-            patient = Patient.objects.get(utilisateur__id=utilisateur_id)
-        except Patient.DoesNotExist:
-            raise NotFound("Aucun patient trouvé pour cet utilisateur.")
-
-        # Récupérer le DPI du patient
-        try:
-            dpi = DPI.objects.get(patient=patient)
-        except DPI.DoesNotExist:
-            raise NotFound("Aucun DPI trouvé pour ce patient.")
-
-        # Sérialiser les données du DPI
-        serializer = DPIDetailSerializer(dpi)
-        return Response(serializer.data)
 
 
 class DPIListView(ListAPIView):
