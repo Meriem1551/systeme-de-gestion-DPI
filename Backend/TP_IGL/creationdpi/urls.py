@@ -2,7 +2,7 @@ from django.urls import path
 
 from .views import  SearchDPIByNSSView ,QRCodeScanView
 
-from .views import DPICreationView ,QRCodeView , DPIListView ,DPIDetailView
+from .views import DPICreationView ,QRCodeView , DPIListView ,DPIDetailView , ConsultDPIView
 
 from django.conf import settings
 from django.conf.urls.static import static
@@ -14,6 +14,8 @@ urlpatterns = [
     path('NssSearch/', SearchDPIByNSSView.as_view(), name='search-dpi-by-nss'),
     path('QRCodeSearch/', QRCodeScanView.as_view(), name='qr-code-search'),
 
+    path('consulterdpi/<int:utilisateur_id>/', ConsultDPIView.as_view(), name='consult_dpi'),
+    
     path('dpis/', DPIListView.as_view(), name='dpi-list'),
     path('dpis/<int:pk>/', DPIDetailView.as_view(), name='dpi-detail'),
 
