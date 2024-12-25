@@ -44,13 +44,13 @@ class PharmacienHospitalier(models.Model):
     def valider_ordonnance(self, ordonnance):
         ordonnance.etat_ordonnance = True
         ordonnance.save()
-
+        
 class DPI(models.Model):
-    id_dpi = models.AutoField(primary_key=True)
+id_dpi = models.AutoField(primary_key=True)
     patient = models.OneToOneField('Patient', on_delete=models.CASCADE, default=1)
     medecin = models.ForeignKey('Medecin', related_name="medcin", on_delete=models.CASCADE, default=1)
     antecedents = models.TextField(blank=True)
-    qr_code = models.ImageField(upload_to='qrcodes/', unique=True ) # Don t set a default here 
+    qr_code = models.ImageField(upload_to='qrcodes/', unique=True , default='default_qr')
 
     def save(self, *args, **kwargs):
         # Génère le QR code avant de sauvegarder
