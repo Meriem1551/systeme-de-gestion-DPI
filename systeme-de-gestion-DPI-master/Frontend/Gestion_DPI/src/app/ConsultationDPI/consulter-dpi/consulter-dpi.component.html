@@ -1,0 +1,130 @@
+
+
+<div class="informations_perso">
+<h2>Informations personnelle</h2>
+</div>
+<div class="container">
+ 
+   <div class="info">
+      <div class="inf NSS">
+         <p>NSS</p><div><p class="text">NSS</p></div>
+      </div>
+      <div class="inf nom">
+         <p>Nom</p>
+         <div><p class="text">Nom</p></div> 
+      </div>
+      <div class="inf prenom">
+         <p>Prenom</p><div><p class="text">Prenom</p></div>
+      </div>
+      <div class="inf date">
+         <p>Date de naissance </p><div><p class="text">Date de naissance</p></div>
+      </div>
+      <div class="inf adr">
+         <p>Adresse</p><div><p class="text">Adresse</p></div>
+      </div>
+      <div class="inf tel">
+         <p>Téléphone</p><div><p class="text">Téléphone</p></div>
+      </div>
+      <div class="inf perAContact">
+         <p>Personne à contacter</p><div><p class="text">Personne à contacter</p></div>
+      </div>
+      <div class="inf perAContact">
+         <p>Mutuelle</p><div><p class="text">Mutuelle</p></div>
+      </div>
+      <div class="inf perAContact">
+         <p>Medecin traitant</p><div><p class="text">Medecin traitant</p></div>
+      </div>
+   
+   </div>
+  <!-- <div class="img">
+      <img src="" alt="">
+
+   </div>-->
+</div>
+<div class="sections">
+ 
+   <div class="section">
+      <a href="#Consultations" >Consultations   </a>
+   </div>
+   <div class="section">
+      <a href="#soins" >Soins infirmiers</a>
+   </div>
+</div>
+<div class="imgConsult">
+   <img src="../../../assets/images/doctor_consult.svg" alt="">
+</div>
+<div id="Consultations" class="tabConsult">
+   <h2>Consultations</h2>
+
+    <table mat-table [dataSource]="dataSource" class="tab">
+
+      <ng-container matColumnDef="NConsultation" >
+        <th mat-header-cell *matHeaderCellDef class="coloneconsult"> N° Consultation </th>
+        <td mat-cell *matCellDef="let element"> {{element.NConsultation}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="date" >
+        <th mat-header-cell *matHeaderCellDef class="coloneconsult"> date </th>
+        <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+      </ng-container>
+      <ng-container matColumnDef="Ordo">
+         <th mat-header-cell *matHeaderCellDef class="coloneconsult"> Ordonnance </th>
+         <td mat-cell *matCellDef="let element">
+           <img *ngIf="element.Ordo === 'oui'" src="../../../assets/images/mingcute_paper-line.svg" class="imgcolore" alt="" (click)="openOrdonnance()">
+           <img *ngIf="element.Ordo === 'non'" src="../../../assets/images/mingcute_paper-line_gris.svg" class="imggris" alt="">
+         </td>
+       </ng-container>
+
+      <ng-container matColumnDef="Bilan_bio" class="bilans" >
+        <th mat-header-cell *matHeaderCellDef class="coloneconsult">Bilan Biologique</th>
+        <td mat-cell *matCellDef="let element">
+         <img *ngIf="element.Bilan_bio === 'oui'" src="../../../assets/images/mingcute_paper-line.svg" class="imgcolore" alt="" (click)="openBilanBio()">
+         <img *ngIf="element.Bilan_bio === 'non'" src="../../../assets/images/mingcute_paper-line_gris.svg" class="imggris" alt="">
+       </td>
+      </ng-container>
+      <ng-container matColumnDef="Bilan_rad" class="bilans" >
+         <th mat-header-cell *matHeaderCellDef class="coloneconsult">Bilan Radiologique</th>
+         <td mat-cell *matCellDef="let element">
+          <img *ngIf="element.Bilan_rad === 'oui'" src="../../../assets/images/mingcute_paper-line.svg" class="imgcolore" alt="" (click)="openBilanRad()">
+          <img *ngIf="element.Bilan_rad === 'non'" src="../../../assets/images/mingcute_paper-line_gris.svg" class="imggris" alt="">
+        </td>
+       </ng-container>
+      <ng-container matColumnDef="Resume" class="resume">
+         <th mat-header-cell *matHeaderCellDef class="coloneconsult">Résumé</th>
+         <td mat-cell *matCellDef="let element">
+            <img *ngIf="element.Resume === 'oui'" src="../../../assets/images/mingcute_paper-line.svg" class="imgcolore" alt="" (click)="openResume()">
+            <img *ngIf="element.Resume === 'non'" src="../../../assets/images/mingcute_paper-line_gris.svg" class="imggris" alt="">
+          </td>
+       </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>
+<div id="soins" class="tabConsult2">
+   <h2>Soins infirmiers du Patient</h2>
+
+    <table mat-table [dataSource]="dataSource2" class="tabsoins">
+
+      <ng-container matColumnDef="Date" >
+        <th mat-header-cell *matHeaderCellDef class="coloneconsult2"> Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.Date}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Description" >
+        <th mat-header-cell *matHeaderCellDef class="coloneconsult2"> Description </th>
+        <td mat-cell *matCellDef="let element"> {{element.Description}} </td>
+      </ng-container>
+      <ng-container matColumnDef="Observation">
+         <th mat-header-cell *matHeaderCellDef class="coloneconsult2"> Observation </th>
+         <td mat-cell *matCellDef="let element">{{element.Observation}}</td>
+       </ng-container>    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns2;"></tr>
+    </table>
+</div>
+<div class="imgsoins">
+   <p>Ensemble pour votre santé : écouter, soigner et accompagner</p>
+   <img src="../../../assets/images/soins.svg" alt="">
+  
+</div>

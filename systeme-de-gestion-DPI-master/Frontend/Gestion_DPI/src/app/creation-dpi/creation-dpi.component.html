@@ -1,0 +1,49 @@
+<app-header></app-header>
+<div class="main">
+    <div class="info-card">
+        <h2>{{title}}</h2>
+        <form action="" method="post">
+            <div class="nom">
+                <label for="nom">{{labels[0]}}</label>
+                <input type="text" placeholder={{labels[0]}} id="nom">
+            </div>
+            <div class="prenom">
+                <label for="prenom">{{labels[1]}}</label>
+                <input type="text" placeholder={{labels[1]}} id="prenom">
+            </div>
+            <div class="nns">
+                <label for="nss">{{labels[2]}}</label>
+                <input type="text" placeholder={{labels[2]}} id="nss">
+            </div>  
+            <div class="ddn">
+                <label for="ddn">{{labels[3]}}</label>
+                <input type="date" id="ddn">
+            </div>
+            <div class="adresse">
+                <label for="adresse">{{labels[4]}}</label>
+                <input type="text" placeholder={{labels[4]}} id="adresse">
+            </div>
+            <div class="num-tel">
+                <label for="num-tel">{{labels[5]}}</label>
+                <input type="text" placeholder={{labels[5]}} id="num-tel">
+            </div>
+            <div class="mutuelle">
+                <label for="mutuelle">{{labels[6]}}</label>
+                <input type="text" placeholder={{labels[6]}} id="mutuelle">
+            </div>
+            <div class="medecin">
+                <label for="medecin">{{labels[7]}}</label>
+                <input type="text" placeholder={{labels[7]}} id="medecin">
+            </div>
+            <div class="contact">
+                <label for="contact">{{labels[8]}}</label>
+                <input type="text" placeholder={{labels[8]}} id="contact">
+            </div>
+            <div class="buttons">
+                <button type="submit">{{buttons[0]}}</button>
+                <button type="reset">{{buttons[1]}}</button>
+            </div>
+        </form>
+    </div>
+    <img src="../../assets/images/undraw_doctors_djoj.svg" alt="doctors">
+</div>

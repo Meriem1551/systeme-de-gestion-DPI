@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+
+.container {
+    gap: 14%;
+    position: relative;
+    margin-top: -3%;
+  }
+  
+  .container h2 {
+    font-family: 'Nunito', sans-serif;
+    color: #242855;
+    font-size: 2rem;
+    margin-bottom: 6%;
+  }
+/* Style général pour le tableau */
+.table {
+    width: 95%;
+    border-spacing: 0;
+    text-align: left;
+    margin-left: 3%;
+
+  }
+.table tbody{
+    font-family: 'Montserrat', sans-serif;
+}
+  
+  .coloneval {
+    background-color: #218879; /* Only the table headers are green */
+    color: white;
+    font-size: 0.85rem;
+    font-family: 'Montserrat', sans-serif;
+  }
+  .table td, .table th {
+    padding: 2%;
+    text-align: left; 
+
+    border-bottom: 1px solid #ddd; /* Bordure entre les lignes */
+}
+  
+
+  
+  
+  .btn {
+    background-color: white; /* Style only the button */
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+  .icons{
+    display: flex;
+    flex-direction:row;
+    position: relative;
+    margin-top: 10%;
+    margin-left: 65%;
+  }

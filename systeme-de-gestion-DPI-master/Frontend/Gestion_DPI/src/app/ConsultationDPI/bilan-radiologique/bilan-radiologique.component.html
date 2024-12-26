@@ -1,0 +1,23 @@
+<div class="dialog">
+    <mat-dialog-actions>
+        <button mat-button mat-dialog-close class="btn">
+            <img src="../../../assets/images/streamline_delete-1-solid.svg" alt="">
+        </button>
+      </mat-dialog-actions>
+     
+     <div class="container">
+     <h2 mat-dialog-title>Bilan Radiologique</h2>
+    <mat-dialog-content class="res">
+        <div class="paragraphs">
+        <div class="paragraph">
+            <p>{{description}} </p>
+        </div>
+        <p>Vous pouvez télécharger les images médicales à partir des liens suivants :</p>
+        <div class="imgmed" *ngFor="let image of images">
+            <button (click)="downloadImage(image.url, image.name)" class="btn-download">{{image.name}}</button>
+        </div>
+
+    </div>
+    </mat-dialog-content>
+    </div>
+    </div>

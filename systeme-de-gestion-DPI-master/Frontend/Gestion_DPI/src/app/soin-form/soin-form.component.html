@@ -1,0 +1,24 @@
+<div class="form-container">
+    <div class="form-field">
+      <label>Description du Soin</label>
+      <input 
+        type="text" 
+        [(ngModel)]="description" 
+        (input)="onInputChange()" 
+        placeholder="Décrire le soin ici ..." 
+      />
+    </div>
+  
+    <div class="form-field">
+      <label>Observation de l’état du Patient</label>
+      <textarea 
+        [(ngModel)]="observation" 
+        (input)="onInputChange()" 
+        placeholder="Saisir votre observation ici ..."
+      ></textarea>
+    </div>
+  
+    <!-- Delete Button -->
+    <button class="btn-delete" (click)="onDelete()">🗑️</button>
+  </div>
+  

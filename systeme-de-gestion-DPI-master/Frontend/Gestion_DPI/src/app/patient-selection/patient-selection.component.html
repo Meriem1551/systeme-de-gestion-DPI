@@ -1,0 +1,10 @@
+<section class="patient-selection">
+    <label for="patient-select" class="section-title">Sélectionner un Patient</label>
+    <select id="patient-select" (change)="onPatientChange($event)">
+      <option value="" disabled selected>Choisir un Patient</option>
+      <option *ngFor="let patient of patients" [value]="patient.id">
+        {{ patient.name }}
+      </option>
+    </select>
+  </section>
+  

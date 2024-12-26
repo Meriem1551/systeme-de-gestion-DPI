@@ -1,0 +1,160 @@
+@import url(../../styles.css);
+
+#background{
+    position: relative;
+    display: flex;
+    flex-direction: column; 
+    height: 100vh; 
+    width: 100vw; 
+}
+#one{
+    background-color: var(--black);
+    flex: 1;
+    >div{
+        height: 100%;
+        width: 41%;
+        border-top-left-radius: 30%;
+        background-color: var(--Elm);
+        position: fixed;
+        right: 0;
+    }
+}
+#two{
+    background-color: var(--Elm);
+    flex: 1;
+    >div{
+        height: 100%;
+        width: 59%;
+        border-bottom-right-radius: 23.53%;
+        background-color: var(--black);
+    }
+}
+#login_container{
+    position: absolute;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    width: 80%; 
+    height: 85%;
+    background-color: var(--White); 
+    border: 2px solid var(--Alto);
+    border-radius: 1.75% / 3%;
+    display: flex;
+}
+#bg-deco{
+    width: 80%; 
+    height: 25%;
+    background-color: var(--Onahau);
+    border-radius:1.65%/9.28%;
+    position: absolute; 
+    >img{
+        margin: 2%;
+        width: 20%;
+    }
+}
+
+ #image{
+    width: 50%;
+    height: 80%;
+    background-color: var(--Onahau);
+    border-radius: 3% 0% 20% 3%;
+    position: absolute;
+    top: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    
+    >img{
+        width: 70%;
+    }
+}
+#card{
+    width: 50%;
+    height: 50%;
+    display: grid;
+    place-content: center;
+    text-align: center;
+   position: relative;
+   top: 40%;
+   left: 50%;
+}
+#head{
+    width: 50%;
+    height: 40%;
+    display: grid;
+    place-content: center;
+    background-color: var(--White);
+    border-radius:15% /40%;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+h1{
+    font-family: var(--font-family-title);
+    color: var(--black);
+    font-size: 2rem;
+    margin-top: 40px;
+}
+p{
+    color: var(--Tundora);
+    font-family: var(--font-family-text);
+    font-size: 1rem;
+    width: 50%;
+    margin-top: 20px;
+    margin-left: 25%;
+}
+form{
+    width: 150%;
+    margin-top: 20px;
+    padding: 8%;
+    text-align: start;
+    font-family: var(--font-family-text);
+    color: var(--Tundora);
+    border-top: 1px solid var(--Alto);
+    margin-left: -50px;
+}
+.input{
+    width: 100%;
+    border: 2px solid var(--Silver);
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    >img{
+        width: 9%;
+        margin: 1%;
+    }
+}
+input{
+    width: 100%;
+    border: none;
+    padding: 4%;
+}
+button{
+    width: 100%;
+    height: 40px;
+    margin-top: 50px;
+    background-color: var(--Turquoise);
+    font-family: var(--font-family-text);
+    border: none;
+    border-radius: 5px;
+    font-weight:800;
+    color: var(--White);
+}
+button:hover{
+    background-color: var(--White);
+    color: var(--Turquoise);
+    border: 2px solid var(--Turquoise);
+}
+input::placeholder{
+    font-family: var(--font-family-text);
+    font-size: 0.8rem;
+}
+
+
+@media (max-width : 600) {
+    p{
+        font-size: 0.6rem;
+    }
+}

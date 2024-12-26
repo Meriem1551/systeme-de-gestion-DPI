@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+
+
+
+.btn {
+    background-color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+.container{
+  text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    gap: 1.5rem;
+    margin-top: -8%;
+}
+.container h2 {
+  font-family: 'Nunito', sans-serif;
+  color: #242855;
+  font-size: 2rem;
+  margin: 0; /* Supprime les marges supplémentaires */
+}
+
+.paragraphs{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  gap: 1rem;
+
+}
+.paragraph{
+  border: #3BD6CC solid 0.2rem; /* Bordure verte */
+  border-radius: 1.5rem; /* Coins arrondis */
+  width: 25rem; /* Augmente la largeur du cadre */
+  padding: 0.7rem; /* Ajoute de l'espace à l'intérieur du cadre */
+  background-color: #f9f9f9; /* Couleur d'arrière-plan pour le contraste */
+  font-family: 'Montserrat', sans-serif;
+  text-align: left;
+      
+  }
+
+  .paragraph p{
+    margin: 0;
+  font-size: 1rem;
+}
+
+/*
+.container {
+    display: flex;
+    flex-direction: row;
+    gap: 10%;
+    width: 100%;
+    height: 300%;
+
+
+  }
+  
+  .container h2 {
+ 
+
+  }
+ 
+  
+
+
+*/
