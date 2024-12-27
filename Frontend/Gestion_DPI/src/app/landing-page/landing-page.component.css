@@ -1,0 +1,144 @@
+@import url(../../styles.css);
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#accueil {
+    font-family: var(--font-family-title);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    min-height: 80vh;
+    position: relative; /* Ensures proper positioning of elements inside the section */
+}
+
+#accueil .text {
+    flex: 1;
+    max-width: 50%;
+    z-index: 1; /* Keeps the text above the image */
+}
+
+#accueil h1 {
+    font-size: 2.5rem;
+    color: var(--Port-gore);
+    margin-bottom: 15px;
+}
+
+#accueil h2 {
+    font-size: 1.25rem;
+    color: var(--Niagara);
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+#accueil button {
+    font-family: var(--font-family-text);
+    padding: 10px 20px;
+    background-color: var(--Port-gore);
+    color: var(--White);
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#accueil button:hover {
+    background-color: var(--black);
+}
+
+#accueil img {
+    position: absolute; 
+    right: 40px; 
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: 40%; 
+    height: auto; 
+    z-index: 0; 
+    opacity: 0.9;
+}
+
+
+
+#fonctions{
+    display: grid;
+}
+#fonctions>div{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 50px;
+    margin: 20px;
+}
+.mat-mdc-card{
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding: 10px;
+    border: none;
+    width: 100%;
+}
+.mat-mdc-card:hover{
+    cursor: pointer;
+    border: 2px solid var(--Elm);
+    box-shadow: -4px -4px 5px rgba(0, 0, 0, 0.2), 4px 4px 10px rgba(0, 0, 0, 0.5);
+}
+.mat-mdc-card h4{
+    font-family: var(--font-family-title);
+    color: var(--Port-gore);
+}
+p{
+    font-family: var(--font-family-text);
+    color: var(--Tundora);
+    margin-top: 20px;
+}
+.mat-mdc-card img{
+    width: 100%;
+}
+h2{
+    font-family: var(--font-family-title);
+    font-size: 2rem;
+    text-align: center;
+    color: var(--Port-gore); 
+    margin-bottom: 20px; 
+    line-height: 1.6;   
+}
+
+#contact{
+    display: grid;
+    text-align: center;
+    padding: 50px;
+}
+.contacts{
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+}
+.contacts p:hover{
+    color: var(--Elm);
+    cursor: pointer;
+}
+@media (max-width: 600px) {
+    #accueil {
+        flex-direction: column;
+        text-align: center; 
+    }
+
+    #accueil .text {
+        max-width: 100%; 
+    }
+
+    #accueil img {
+        max-width: 80%; 
+        margin-top: 20px; 
+    }
+    #fonctions>div{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 50px;
+        margin: 20px;
+    }
+}

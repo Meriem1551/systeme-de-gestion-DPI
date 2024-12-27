@@ -34,8 +34,14 @@
               }
             ],
             "styles": [
+
               "src/custom-theme.scss",
-              "src/styles.css"
+              "src/styles.css",
+              "src/app/ConsultationDPI/consulter-dpi/consulter-dpi.component.css",
+              "src/app/app.component.css"
+
+              
+
             ],
             "scripts": [],
             "server": "src/main.server.ts",

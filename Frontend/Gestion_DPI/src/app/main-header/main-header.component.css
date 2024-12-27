@@ -1,0 +1,57 @@
+@import url(../../styles.css);
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+
+header img {
+    height: 50px; 
+    cursor: pointer;
+}
+
+
+header ul {
+    list-style: none; 
+    display: flex; 
+    gap: 40px; 
+}
+
+header ul li a{
+    font-family: var(--font-family-title);
+    font-size: 16px;
+    font-weight: 500; 
+    color: var(--Tundora); 
+    cursor: pointer; 
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+
+header ul li a:hover {
+    color: var(--Turquoise);
+    text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    header {
+        flex-direction: column; 
+        align-items: center;
+    }
+
+    header ul {
+        gap: 15px; 
+        margin-top: 10px; 
+    }
+}

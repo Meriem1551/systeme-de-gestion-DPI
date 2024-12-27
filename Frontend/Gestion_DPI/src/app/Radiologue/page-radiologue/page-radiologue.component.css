@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+ 
+}
+.container h2{
+    font-size: 2rem; /* Taille du texte */
+
+    text-align: center; /* Centrage */
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(to right, black, #3BD6CC); /* Dégradé de couleurs */
+    -webkit-background-clip: text; /* Clip le dégradé à la zone du texte (pour WebKit) */
+    -webkit-text-fill-color: transparent; /* Rend le texte transparent pour afficher le dégradé */
+    background-clip: text; /* Support moderne pour les autres navigateurs */
+    color: transparent;
+}
+.select-container{
+    background-color: rgba(193, 255, 251, 0.3)    ;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1% 1%;
+    width: 95%;
+    font-family: 'Nunito', sans-serif;
+}
+.dropdown-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+   
+  }
+  
+  .dropdown-label {
+    padding: 1%;
+    border: 0.2rem solid #ddd;
+    cursor: pointer;
+  }
+  
+  .dropdown-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    border: 0.2rem solid #ccc;
+    background-color: #fff;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+  }
+  
+  .dropdown-list li {
+    padding: 1%;
+    cursor: pointer;
+  }
+  
+  .dropdown-list li:hover {
+    background-color: #3BD6CC;
+  }
+
+  .details-table {
+    background-color: rgba(193, 255, 251, 0.3)    ;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2% 2%;
+    width: 95%;
+    margin-top: 0.5%;
+    margin-bottom: 2%;
+  }
+
+  .details-table p {
+    font-size: 1.4rem;
+    font-family: 'Nunito', sans-serif ;
+  }
+  
+  .details-table table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  
+  .details-table th {
+    background-color: #218879;
+  }
+  .tabbilans {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .tabbilans td {
+    padding: 1%;
+    border: 0.1rem solid #ccc;
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+  }
+  
+  .tabbilans th {
+    background-color: #218879;
+    color: white;
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+  }
+  
+  .coloneradilog {
+    text-align: center;
+  }
+
+  .imgnotcheck{
+    cursor: pointer;
+  }
+  .imgcheck{
+    cursor: pointer;
+  }
+  .imgnotcheck:hover {
+    /*opacity: 0.6;*/
+    filter: brightness(100%) saturate(200%) invert(20%) sepia(60%) hue-rotate(340deg) contrast(110%);
+
+    transition: opacity 0.3s ease;
+    border-radius: 50%;
+    
+  }

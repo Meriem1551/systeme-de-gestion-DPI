@@ -24,8 +24,9 @@ urlpatterns = [
     path('api/v1/auth/', include("authentification.urls")),
     path('api/dpi/', include("creationdpi.urls")),
     path('api/miseajourdpi/',include("miseajourdpi.urls")),
-
-
+    path('api/biology/',include("biology.urls")),
+    path('api/radiology/',include("radiology.urls")),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    

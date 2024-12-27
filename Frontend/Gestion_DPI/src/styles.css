@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Nunito&display=swap');
 :root{
     /*COLORS*/
@@ -27,4 +28,9 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: rgba(33, 136, 121, 0.05);;
 }
+
+
+
+

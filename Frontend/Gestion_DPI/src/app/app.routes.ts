@@ -5,4 +5,5 @@ export const routes: Routes = [
     {path: '', component: LandingPageComponent },
     {path: 'login', component: LoginComponent },
 
+
 ];

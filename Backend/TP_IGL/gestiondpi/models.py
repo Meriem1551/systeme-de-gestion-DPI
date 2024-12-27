@@ -125,7 +125,7 @@ class Prescription(models.Model):
     duree = models.CharField(max_length=50)
     medicament = models.OneToOneField(Medicament, related_name="prescription", on_delete=models.CASCADE,default=1)    
 
-class BilanBiologique(models.Model):
+'''class BilanBiologique(models.Model):
     id_bilanbiologique = models.AutoField(primary_key=True)
     description = models.TextField(default="")
     parametres = models.ManyToManyField('ParametreBiologique', related_name="bilans_biologiques")
@@ -140,17 +140,47 @@ class ParametreBiologique(models.Model):
 class ParametreBioMesure(models.Model):
     id_parametrebiomesure = models.AutoField(primary_key=True)
     parametre_biologique = models.ForeignKey('ParametreBiologique', on_delete=models.CASCADE, related_name="mesures")
+    bilan_biologique = models.ForeignKey('BilanBiologique', on_delete=models.CASCADE, related_name="parametre_bio_mesures")
+    valeur_mesuree = models.CharField(max_length=100)
+    date_mesure = models.DateField()'''
+  
+  
+class BilanBiologique(models.Model):
+    id_bilanbiologique = models.AutoField(primary_key=True)
+    description = models.TextField(default="")
+    # One BilanBiologique can have many ParametreBioMesure instances
+    parametres_bio_mesures = models.ManyToManyField('ParametreBioMesure', related_name="bilans_biologiques")
+    laborantin = models.ForeignKey('Laborantin', related_name="bilanbiologiques", on_delete=models.CASCADE, null=True)
+
+class ParametreBioMesure(models.Model):
+    id_parametrebiomesure = models.AutoField(primary_key=True)
+    # Linking to a single BilanBiologique
+    bilan_biologique = models.ForeignKey('BilanBiologique', on_delete=models.CASCADE, related_name="parametre_bio_mesures")
+    nom = models.CharField(max_length=100)
+    unite_mesure = models.CharField(max_length=20)
+    valeur_normale = models.CharField(max_length=100)
     valeur_mesuree = models.CharField(max_length=100)
     date_mesure = models.DateField()
+
+    # This ensures each ParametreBioMesure is only linked to one BilanBiologique
+    '''class Meta:
+        unique_together = ('bilan_biologique', 'nom')  # Prevents a BilanBiologique from being linked to the same ParametreBioMesure twice'''
+  
+    
+    
+    
 
 class BilanRadiologique(models.Model):
     id_bilanradiologique = models.AutoField(primary_key=True)
     description = models.TextField(default="")
     type = models.TextField(default="")
-    image = models.ImageField(upload_to="radiologies/")
     compte_rendu = models.TextField()
     radiologue = models.ForeignKey('Radiologue', related_name="bilanradiologiques", on_delete=models.CASCADE,null=True,)
 
+class RadiologyImage(models.Model):
+    id_image = models.AutoField(primary_key=True)
+    image = models.ImageField(upload_to="radiologies/")
+    bilan_radiologique = models.ForeignKey(BilanRadiologique, related_name="images", on_delete=models.CASCADE)
 
 class Soin(models.Model):
     id_soin = models.AutoField(primary_key=True)

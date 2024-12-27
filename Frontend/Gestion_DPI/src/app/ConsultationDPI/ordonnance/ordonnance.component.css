@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+
+
+/*.custom-dialog .mat-dialog-container {
+  border-radius: 20px !important; /* Add border-radius to the dialog container */
+ /* background-color: #218879 !important; /* Ensure the dialog container background is white */
+/*}*/
+
+.container {
+  gap: 10%;
+  position: relative;
+  margin-top: -8%;
+}
+
+.container h2 {
+  font-family: 'Nunito', sans-serif;
+  color: #242855;
+  font-size: 2rem;
+  margin-bottom: 6%;
+}
+
+.tab {
+  width: 100%;
+  border-spacing: 0; /* No extra spacing between cells */
+  border-collapse: collapse; /* Supprime les espaces entre les bordures */
+  border: 1px solid #ddd;
+}
+
+.tab td {
+  border: 1px solid #ddd; /* Gris clair */
+}
+.coloneordo {
+  background-color: #218879; /* Only the table headers are green */
+  color: white;
+  font-size: 0.85rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.btn {
+
+  cursor: pointer;
+}
+/*.dialog{width: 100%;height: auto;}*/
+
+.icons{
+  display: flex;
+  flex-direction:row;
+  position: relative;
+  margin-top: 8%;
+  gap: 2%;
+  margin-left: 3%;
+
+  .med{
+    position: relative;
+    margin-left: 60%;
+ }
+}

@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+.btn {
+   /* background-color: white; 
+    border: none;
+    outline: none;*/
+    cursor: pointer;
+  }
+.container {
+
+    position: relative;
+    margin-top: -7%;
+  }
+  
+  .container h2 {
+    font-size: 1.5rem; /* Taille du texte */
+    font-weight: bold;
+    text-align: center; /* Centrage */
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(to right, #242855, #3BD6CC); 
+    -webkit-background-clip: text; /* Clip le dégradé à la zone du texte (pour WebKit) */
+    -webkit-text-fill-color: transparent; /* Rend le texte transparent pour afficher le dégradé */
+    background-clip: text; /* Support moderne pour les autres navigateurs */
+    color: transparent;
+  }
+ .res{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+ }
+  .compteRendu , .images{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    position: relative;
+    gap: 1rem;
+
+    padding: 2% 1%;
+    background-color:rgba(193, 255, 251, 0.3)    ;
+  
+  }
+  .paragraph{
+    
+    border: #3BD6CC solid 0.2rem; /* Bordure verte */
+    border-radius: 1rem; /* Coins arrondis */
+    width: 90%; /* Augmente la largeur du cadre */
+    height: 6rem;
+    padding: 0.7rem; /* Ajoute de l'espace à l'intérieur du cadre */
+    background-color: #f9f9f9; /* Couleur d'arrière-plan pour le contraste */
+    font-family: 'Nunito', sans-serif;
+    text-align: left;    
+    }
+  
+    .paragraph p{
+      margin: 0;
+    font-size: 1rem;
+    
+    font-family: 'Nunito', sans-serif;
+    margin-top: 1%;
+  }
+  .compteRendu p{
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-top: 1%;
+  }
+  .images p {
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-top: 1%;
+  }
+  .imgmed{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: -1%;
+
+  }
+  .imgmed button{
+   width: 28rem;
+   text-align: left;
+   background-color: white;
+   color: #3BD6CC;
+   border: #CFCDCD solid 0.1rem;
+
+   cursor: pointer;
+  }
+  /* Style personnalisé pour le bouton de sélection */
+.custom-file-upload {
+    position: relative;
+    display: inline-block;
+
+    text-align: center;
+  }
+  
+  .custom-file-upload label {
+    padding: 1% 1%;
+    background-color: #218879;
+    color: white;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    font-size: 1rem;
+ 
+  }
+  
+  /* Masquer l'input de type file */
+  .custom-file-upload input[type="file"] {
+    display: none;
+  }
+  
+  /* Bouton upload 
+  button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  button:hover {
+    background-color: #218838;
+  }
+  */
+  /* Liste des fichiers */
+  /*
+  ul {
+  
+    padding: 0;
+    list-style-type: none;
+    gap: 1rem;
+  }
+  
+  ul li {
+ 
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.8rem ;
+    
+    text-align: left;
+    background-color: white;
+    color: #1E90FF;
+    border: #CFCDCD solid 0.1rem;
+ 
+    cursor: pointer;
+  }
+
+  ul li img{
+    position: relative;
+    cursor: pointer;
+
+    margin-left: 72%;
+  }
+    */
+    ul {
+  
+        padding: 0;
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      
+      ul li {
+  
+        font-family: 'Nunito', sans-serif;
+        font-size: 0.8rem;
+        background-color: white;
+        color: #1E90FF;
+        border: #CFCDCD solid 0.1rem;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start; /* Garder les éléments alignés à gauche */
+        gap: 1rem;  /* Augmenter l'espace entre les éléments */
+      }
+      
+      ul li img {
+        width: 15px;
+        height: 15px;
+        cursor: pointer;
+        margin-left: auto;
+      }
+      
+      ul li img:hover {
+        opacity: 0.8;
+      }
+.buttoms{
+ display: flex;
+ gap: 1rem;
+
+ margin-top: 2%;
+
+}
+ .annuler{
+    background-color: black;
+    color: white;
+    border-radius: 1.5rem;
+    padding: 2% 2%;
+    width: 20%;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    margin-left: 60%;
+ }  
+ .enreg{
+    background-color: #3BD6CC;
+    color: black;
+    border-radius: 1.5rem;
+    padding: 2% 2%;
+    width: 20%;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    
+ }   
+      
+      
+  

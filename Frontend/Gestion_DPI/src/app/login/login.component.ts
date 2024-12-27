@@ -15,4 +15,6 @@ label2 = 'Votre mot de passe';
 ph1=`Votre nom d'utilisateur`;
 ph2='Votre mot de passe';
 button='Se Connecter';
+name1='username';
+name2='password';
 }

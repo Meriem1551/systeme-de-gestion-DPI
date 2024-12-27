@@ -1,0 +1,45 @@
+<div class="dialog">
+    <mat-dialog-actions>       
+            <img mat-dialog-close class="btn" src="../../../assets/images/streamline_delete-1-solid.svg" alt="">
+      </mat-dialog-actions>
+     
+     <div class="container">
+       
+     <h2 mat-dialog-title>Rédaction du Compte Rendu</h2>
+    <mat-dialog-content class="res">
+        <div class="compteRendu">
+       
+           <p>Compte Rendu Radiologique</p>
+
+            <textarea class="paragraph" placeholder="Rédiger votre compte rendu détaillé ici ..." name="compteRendu" [(ngModel)]="compteRendu"></textarea>
+
+        </div>  
+        <div class="images"> 
+        <p>Chargement des Images Médicales </p>
+ <!-- Input personnalisé avec un bouton stylisé -->
+    <div class="custom-file-upload">
+    <label for="fileInput">Sélectionner des images médicale</label>
+    <input type="file" id="fileInput" (change)="onFileSelected($event)" multiple />
+    </div>
+  <!-- pour le back pour envoyer les fichier charger 
+  <button (click)="uploadFiles()">Uploader</button>
+  -->
+  
+  <p *ngIf="files.length > 0">Images téléchargées :</p>
+  <ul *ngIf="files.length > 0">
+    <li *ngFor="let file of files; let i = index">
+        {{ file.name }}
+        <img src="../../../assets/images/streamline_delete-1-solid_red.svg" alt="" (click)="removeFile(i)">
+      </li>
+  </ul>
+        </div> 
+        <!-- <div class="imgmed" *ngFor="let image of images">
+            <button (click)="" class="btn-download"></button>
+        </div>-->
+        <div class="buttoms">
+   <button class="annuler" (click)="annuler()">Annuler</button>
+   <button class="enreg" (click)="enregistrer()">Enregistrer</button>
+</div>
+    </mat-dialog-content>
+    </div>
+    </div>

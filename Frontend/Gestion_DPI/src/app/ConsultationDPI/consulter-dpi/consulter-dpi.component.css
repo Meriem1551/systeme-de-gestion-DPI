@@ -1,0 +1,299 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+
+
+
+.container{
+  border: #218879 solid 0.2rem; 
+  border-radius: 1rem;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  width: 85%; /* Réduire la largeur globale */
+  padding: 2% 0%; /* Diminuer l'espace intérieur */
+  margin: 0 auto; 
+  margin-top: 5%;
+}
+.informations_perso{
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+
+
+}
+.informations_perso h2{
+  font-family: 'Montserrat', sans-serif;
+  color: #3BD6CC;
+  font-size: 2.5rem;
+  position: relative;
+  margin-top: 2%; /* Ajuster la marge supérieure */
+  margin-left: 25%;  /*Aligner au centre automatiquement */
+  text-align: center; 
+  margin-bottom: 1%;
+}
+.subcontainer {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+  gap: 5%; /* Adjusted gap using percentage */
+  padding: 1%;
+  margin-top: 2%;
+  margin-left: 4%;
+  justify-content: center; /* Center items on smaller screens */
+}
+/*
+.img {
+  width: 15%; 
+  height: 9rem; 
+  margin: 0 auto;
+  margin-top: 7%;
+  background-color: #fff;
+}
+*/
+.info {
+  display: flex;
+  flex-direction: column;
+  width: 70%; /* Scale proportionally */
+}
+
+.inf {
+    display: flex;
+    align-items: center;
+    gap: 5%;
+    margin-bottom: 2%;
+    position: relative;
+}
+
+.inf > p {
+  flex-shrink: 0;
+  font-family: 'Montserrat', sans-serif;
+  width: 25%; /* Adjust width for responsiveness */
+}
+
+.inf > div {
+   
+  flex-grow: 1;
+  color: black;
+  width: 70%; /* Responsive width */
+  height: 2rem; /* Responsive height */
+  position: relative;
+  border-bottom: 0.1rem solid black;
+}
+
+.text {
+  color: #242855;
+  position: absolute; /* Position the text over the parent div */
+  top: 50%; /* Center vertically */
+  left: 1%; /* Align to the left */
+  transform: translateY(-50%); /* Adjust for vertical centering */
+  margin: 0;
+  font-family: 'Nunito', sans-serif;
+}
+
+.sections {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  gap: 8%;
+  padding: 4%;
+  justify-content: center;
+}
+
+.section {
+  flex: 1 ; /* Make sections take equal space and allow wrapping */
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5%;
+  border-radius: 0.5rem; /* Optional: Rounded corners */
+  transition: all 0.3s ease;
+}
+
+.section > a {
+  text-decoration: none;
+  font-family: 'Nunito', sans-serif;
+  color: #1E90FF;
+  font-size: 1.2rem;
+  white-space: nowrap; /* Prevents the text from wrapping */
+}
+
+.section:hover {
+  background-color: #3BD6CC;
+  transform: scale(1.01);
+
+
+  a{
+    color: white;
+ }
+}
+/*
+.antecedentpage {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5%;
+}
+
+.antecedentpage h2 {
+  font-family: 'Nunito', sans-serif;
+  color: #218879;
+}
+
+.antecedentpage div {
+  border: #218879 solid 0.2rem;
+  border-radius: 2rem;
+  width: 80%;
+  height: 50%;
+}
+*/
+.tabConsult,.tabConsult2 {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3%;
+  margin-top: 5%;
+  gap: 4rem;
+}
+
+.tabConsult2 h2 {
+  font-family: 'Montserrat', sans-serif;
+  color: #218879;
+  font-size: 3rem;
+}
+
+.tabConsult h2 {
+  font-family: 'Montserrat', sans-serif;
+  color: #218879;
+  font-size: 3rem;
+}
+
+/*.mat-elevation-z8 ng-container {}*/
+.tab{
+    width: 100%; /* Ensure the table spans the container */
+    border-spacing: 0; /* No extra spacing between cells */
+    border-collapse: collapse;
+    text-align: center;
+}
+.coloneconsult2 {
+  background-color: #218879;
+  color: white;
+  font-size: 1rem;
+  text-align: center;
+  font-family: 'Nunito', sans-serif;
+
+}
+.coloneconsult {
+  background-color: #3BD6CC;
+  color: white;
+  font-size: 1rem;
+  text-align: center;
+  font-family: 'Nunito', sans-serif;
+
+}
+
+
+td, th {
+    padding: 0.5%; /* Add consistent padding for data and headers */
+    text-align: center; /* Ensure the text is aligned center */
+    vertical-align: middle; /* Vertically align the content to the center */
+  }
+  .tab th {
+    background-color: #3BD6CC; /* Couleur d'arrière-plan pour les en-têtes */
+    color: white; /* Couleur du texte dans les en-têtes */
+  }
+  
+  .tab td {
+    border: 1px solid #3BD6CC;
+  
+  }
+.bilans, .resume {
+    text-align: center; /* Align text centrally */
+    position: static; /* Remove relative positioning to avoid misalignment */
+   
+  }
+.imgcolore{
+  position: relative;
+  left: 1%;
+  transition: filter 0.3s ease;
+
+}
+.imgcolore:hover{
+   fill: #218879;
+   /*background-color:#C1FFFB33 ;
+
+   filter: brightness(0) saturate(100%) invert(90%) sepia(20%) saturate(500%) hue-rotate(190deg) ;*/
+   filter: brightness(0) saturate(100%) invert(50%) sepia(30%) saturate(300%) hue-rotate(140deg);
+}
+.imggris{
+    position: relative;
+    left: 1%;
+}
+/*.custom-dialog .mat-dialog-container {   background-color: rgba(33, 136, 121, 0.05); }/* Remplacez par la couleur de votre choix */ 
+
+.custom-dialog{
+  border-radius: 20px;
+  background-color: white;
+  z-index: 0;
+}
+/*.imgsoins{
+  position: relative ;
+  margin-left: 50%;
+  margin-bottom: 5%;
+}*/
+.imgsoins {
+  display: flex;
+  justify-content: flex-end; /* Aligne l'image à droite */
+  align-items: center; /* Centre verticalement si nécessaire */
+  
+  margin: 0 auto; /* Centre le conteneur sur la page */
+  margin-bottom:4% ;
+}
+
+.imgsoins img {
+  max-width: 50%; /* Ajuste la taille maximale de l'image (vous pouvez modifier cette valeur) */
+  height: auto; /* Maintient le ratio de l'image */
+  object-fit: contain; /* S'assure que l'image reste visible dans son conteneur */
+}
+.imgsoins p {
+  position: relative;
+  margin-right: 10%;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.5rem;
+  color: #242855;
+}
+
+.tabsoins{
+  width: 100%;
+  border-collapse: collapse;
+}
+.tabsoins th,
+.tabsoins td {
+ /* Ajoute une bordure autour des cellules */
+  padding: 0.5%; /* Ajoute de l'espace à l'intérieur des cellules */
+  text-align: center; /* Aligne le texte à gauche */
+  font-family: 'Nunito', sans-serif;
+}
+
+.tabsoins th {
+  background-color: #3BD6CC; /* Couleur d'arrière-plan pour les en-têtes */
+  color: white; /* Couleur du texte dans les en-têtes */
+}
+
+.tabsoins td {
+  /*border: 1px solid #ddd;*/
+  border: 1px solid #3BD6CC;
+}
+.imgConsult{
+  display: flex;
+  justify-content: center; /* Centre horizontalement */
+  align-items: center;     /* Centre verticalement */
+  height: 100vh;   
+
+}
+.imgConsult img{
+  max-width: 100%;
+  height: auto;
+}
