@@ -122,6 +122,10 @@ class QRCodeScanView(APIView):
             return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 ############################################"AFFICHAGE####################################################
+
+
+
+
 class DPIListView(ListAPIView):
     queryset = DPI.objects.all()
     serializer_class = DPIListSerializer

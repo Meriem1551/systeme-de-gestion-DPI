@@ -14,6 +14,8 @@ urlpatterns = [
     path('NssSearch/', SearchDPIByNSSView.as_view(), name='search-dpi-by-nss'),
     path('QRCodeSearch/', QRCodeScanView.as_view(), name='qr-code-search'),
 
+
+    
     path('dpis/', DPIListView.as_view(), name='dpi-list'),
     path('dpis/<int:pk>/', DPIDetailView.as_view(), name='dpi-detail'),
 

@@ -44,7 +44,7 @@ class PharmacienHospitalier(models.Model):
     def valider_ordonnance(self, ordonnance):
         ordonnance.etat_ordonnance = True
         ordonnance.save()
-
+        
 class DPI(models.Model):
     id_dpi = models.AutoField(primary_key=True)
     patient = models.OneToOneField(Patient, on_delete=models.CASCADE , default=1)
