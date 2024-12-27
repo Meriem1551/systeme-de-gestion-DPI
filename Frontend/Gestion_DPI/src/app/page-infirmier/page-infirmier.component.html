@@ -1,0 +1,40 @@
+<!-- Header -->
+<app-header></app-header>
+
+<!-- Page Title -->
+<h1 class="page-title">
+  Saisie des <span class="title-gradient">Soins Infirmiers</span>
+</h1>
+
+<!-- Patient Selection Section -->
+<section class="patient-selection">
+  <app-patient-selection (patientSelected)="onPatientSelected($event)"></app-patient-selection>
+</section>
+
+<!-- Ajout de Soins Section -->
+<section *ngIf="patientSelected" class="soins-section">
+  <h2 class="ajout-soins-titre">Ajout de Soins</h2>
+  <div class="button-container">
+    <button class="btn-add-soin" (click)="addSoin()">+ Ajouter un Soin Infirmier</button>
+  </div>
+
+  <!-- Soins List -->
+  <div *ngIf="soins.length > 0" class="soins-ajoutes">
+    <h3 class="soins-ajoutees-titre">Soins ajoutés :</h3>
+    <div class="soins-ajoutees">
+      <div *ngFor="let soin of soins; let i = index" class="soin-form">
+        <app-soin-form
+          [index]="i"
+          (soinDataChanged)="updateSoinData($event, i)"
+          (delete)="deleteSoin(i)"
+        ></app-soin-form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer Buttons -->
+<div class="footer-buttons">
+  <button class="btn-cancel" (click)="cancel()">Annuler</button>
+  <button class="btn-save" (click)="save()">Enregistrer</button>
+</div>

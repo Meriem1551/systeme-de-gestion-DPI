@@ -1,0 +1,11 @@
+INSTALL THIS TOO : 
+
+pip install django
+pip install djangorestframework django-cors-headers
+pip install djangorestframework-simplejwt
+pip install mysqlclient
+pip install Pillow 
+
+INSTALL THIS FOR THE CREATION OF DPI IF U installed the above one add these
+pip install qrcode[pil]
+pip install pyzbar

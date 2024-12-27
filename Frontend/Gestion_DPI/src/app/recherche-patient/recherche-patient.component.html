@@ -1,0 +1,34 @@
+<div id="body">
+<app-header></app-header>
+
+<div class="main">
+    <button class="creation">Creer DPI</button>
+    <div class="search">
+        <div class="search-bar">
+            <i class="fa fa-search"></i>
+            <input type="text" placeholder="Search..." />
+            <button (click)="search()">Search</button>
+        </div>
+        <button class="qrcode">Scan me</button>
+    </div>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+        <ng-container matColumnDef="NSS">
+          <th mat-header-cell *matHeaderCellDef>NSS</th>
+          <td mat-cell *matCellDef="let element">{{element.NSS}}</td>
+        </ng-container>
+              <ng-container matColumnDef="Nom">
+          <th mat-header-cell *matHeaderCellDef>Nom</th>
+          <td mat-cell *matCellDef="let element">{{element.Nom}}</td>
+        </ng-container>
+              <ng-container matColumnDef="Prenom">
+          <th mat-header-cell *matHeaderCellDef>Prenom</th>
+          <td mat-cell *matCellDef="let element">{{element.Prenom}}</td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr
+            mat-row
+            *matRowDef="let row; columns: displayedColumns;"
+        ></tr>
+    </table>
+</div>
+</div>

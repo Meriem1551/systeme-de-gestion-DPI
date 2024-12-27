@@ -1,0 +1,119 @@
+* {
+    font-family: 'Nunito', sans-serif;
+}
+
+/* Page Title with Gradient */
+.page-title {
+    font-size: 2rem;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  .title-gradient {
+    background: linear-gradient(90deg, #4ed6c4, #00a6a0);
+    -webkit-background-clip: text;
+    background-clip: text ;
+    color: transparent;
+  }
+
+   /* Patient Selection */
+   .patient-selection {
+    padding: 1rem;
+    background-color: #f4fdfc;
+    border-radius: 8px;
+    margin: 1rem;
+  }
+  
+  
+  /* Soins Section */
+  .soins-section {
+    padding: 0 1rem 1rem 1rem;
+    background-color: #f4fdfc;
+    border-radius: 8px;
+    margin: 1rem;
+  }
+  
+  .ajout-soins-titre {
+    font-size : 1.4rem;
+    font-weight : 700 ;
+    color : #4a4a4a;
+    display: block;
+    padding-top : 1rem;
+  }
+
+  .soins-ajoutees-titre {
+    color : #4a4a4a;
+  }
+
+  .soins-ajoutes {
+    margin-top: 1rem;
+    max-height: 300px;
+  }
+  
+  .liste-soins-ajoutees {
+    max-height: 300px;
+    overflow-y: auto; /* Scroll for added forms */
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+
+  .btn-add-soin {
+    background-color: #138272;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size : 1rem;
+  }
+  
+  .btn-add-soin:hover {
+    background-color: #0e5f52;
+  }
+  
+  /* Footer Buttons */
+  .footer-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  .btn-cancel, .btn-save {
+    padding: 0.5rem 1.5rem;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  .btn-cancel {
+    background-color: black;
+    color: white;
+    border: solid 1px black;
+    border-radius : 5px;
+    cursor: pointer;
+  }
+  
+  .btn-save {
+    background-color: #4ed6c4;
+    color: white;
+    border: solid 1px #4ed6c4;
+    border-radius : 5px;
+    cursor: pointer;
+  }
+
+  .btn-cancel:hover {
+    background-color: white;
+    color: black;
+    border: solid 1px black;
+  }
+  
+  .btn-save:hover {
+    background-color: white;
+    color: #4ed6c4;
+    border: solid 1px #4ed6c4;
+  }
+  

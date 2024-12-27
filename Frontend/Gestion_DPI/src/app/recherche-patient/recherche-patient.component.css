@@ -1,0 +1,118 @@
+@import url(../../styles.css);
+
+.main{
+    margin: 6%;
+}
+
+.demo-table {
+    width: 100%;
+    margin-top: 2%;
+  }
+ .mat-mdc-header-row {
+    font-family: var(--font-family-title);
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--White);
+    background-color:var(--Port-gore);
+    box-shadow: 2px 2px 10px var(--Port-gore);
+
+}
+.mat-mdc-header-cell{
+    text-align: center;
+}
+  .mat-mdc-row .mat-mdc-cell {
+    border: none;
+    text-align: center;
+    cursor: pointer;
+    font-family: var(--font-family-text);
+    font-size: 0.9rem;
+    color: var(--Port-gore);
+    width: 30%;
+  }
+  
+  .mat-mdc-row:hover  {
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+    border: none;
+  }
+  .search {
+    display: flex;
+    align-items: center;
+    margin-top: 10%;
+  }
+  .search-bar {
+    display: flex;
+    align-items: center;
+    padding: 0.4%;
+    border:2px solid var(--Port-gore);
+    border-radius: 5px;
+    width: 50%;
+  }
+  .search-bar i {
+    font-size: 1.5rem; /* Adjust size of the icon */
+    color: var(--Port-gore);
+  }
+  .search-bar input {
+    border:none;
+    font-family: var(--font-family-text);
+    width: 100%;
+    height: 90%;
+    padding: 1.5%;
+    margin-left: 1%;
+  }
+  .search-bar button{
+    padding: 1.5%;
+    background-color: var(--Port-gore);
+    color: var(--White);
+    font-family: var(--font-family-text);
+    font-weight: 700;
+    border: none;
+    border-radius: 3px;
+  }
+  .qrcode {
+    margin-left: auto;
+    font-size: 14px;
+    color: #555;
+  }
+.creation{
+    background-color: var(--Niagara);
+    padding: 1%;
+    width: 20%;
+    color: var(--White);
+    font-family: var(--font-family-text);
+    font-weight: 700;
+    border: none;
+    border-radius: 3px;
+    float: right;
+    position: absolute;
+    top: 12%;
+    right: 2%;
+  }
+  .creation:hover{
+    background-color: transparent;
+    border:2px solid var(--Niagara);
+    color: var(--Niagara);
+    cursor: pointer;
+  }
+  .qrcode {
+    margin-left: auto;
+    padding: 1%;
+    background-color: var(--Port-gore);
+    color: var(--White);
+    font-family: var(--font-family-text);
+    font-weight: 700;
+    border: none;
+    border-radius: 3px;
+  }
+
+  @media (max-width:600px){
+    .creation{
+        float: top;
+    }
+    .main{
+        font-size: 12px;
+    }
+    .search{
+        margin-top: 20%;
+    }
+  }
