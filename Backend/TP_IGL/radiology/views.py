@@ -4,8 +4,8 @@ from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from gestiondpi.models import BilanRadiologique, RadiologyImage,Consultation
-from .serializers import BilanRadiologiqueSerializer, RadiologyImageSerializer,ConsultationSerializer
+from gestiondpi.models import BilanRadiologique, RadiologyImage,Consultation,DPI
+from .serializers import BilanRadiologiqueSerializer, RadiologyImageSerializer,ConsultationSerializer,DPISerializer
 from rest_framework.parsers import MultiPartParser, FormParser
 from django.conf import settings
 from rest_framework.parsers import MultiPartParser, FormParser
@@ -136,12 +136,97 @@ class GetBilanRadiologiqueByDPI(APIView):
                 )
 
             # Extract the associated bilan radiologique objects
+           
             bilans_radiologiques = [
-                consultation.bilan_radiologue for consultation in consultations_with_bilan
+                {
+                    "consultation_id": consultation.id_consultation,
+                    "bilan_radiologique": BilanRadiologiqueSerializer(
+                        consultation.bilan_radiologue
+                    ).data
+                }
+                for consultation in consultations_with_bilan
             ]
 
             # Serialize the bilans
-            serializer = BilanRadiologiqueSerializer(bilans_radiologiques, many=True)
+            #serializer = BilanRadiologiqueSerializer(bilans_radiologiques, many=True)
+            return Response( bilans_radiologiques, status=status.HTTP_200_OK)
+
+        except Exception as e:
+            return Response({'error': str(e)}, status=status.HTTP_400_BAD_REQUEST)
+        
+
+
+class GetBilanRadiologiqueByConsultation(APIView):
+    def get(self, request, consultation_id):
+        try:
+            # Fetch the consultation by ID
+            consultation = Consultation.objects.filter(id_consultation=consultation_id).first()
+
+            if not consultation:
+                return Response(
+                    {'message': 'Consultation not found.'},
+                    status=status.HTTP_404_NOT_FOUND
+                )
+
+            # Fetch associated radiological bilan
+            bilan_radiologique = consultation.bilan_radiologue
+
+            # Prepare the response
+            response_data = {
+                "consultation_id": consultation_id,
+                "bilan_radiologique": BilanRadiologiqueSerializer(bilan_radiologique).data if bilan_radiologique else None,
+            }
+
+            return Response(response_data, status=status.HTTP_200_OK)
+
+        except Exception as e:
+            return Response({'error': str(e)}, status=status.HTTP_400_BAD_REQUEST)
+
+
+
+'''
+
+class GetDPIsWithRadiologicalBilans(APIView):
+    def get(self, request):
+        try:
+            # Fetch all DPIs with at least one consultation linked to a radiological bilan
+            dpis_with_bilan = DPI.objects.filter(
+                consultations__bilan_radiologue__isnull=False
+            ).distinct()
+
+            # Check if any DPIs exist
+            if not dpis_with_bilan.exists():
+                return Response(
+                    {'message': 'No DPIs found with radiological bilans.'},
+                    status=status.HTTP_404_NOT_FOUND
+                )
+
+            # Serialize the DPIs
+            dpis_data = [{"id_dpi": dpi.id_dpi} for dpi in dpis_with_bilan]
+
+            return Response(dpis_data, status=status.HTTP_200_OK)
+
+        except Exception as e:
+            return Response({'error': str(e)}, status=status.HTTP_400_BAD_REQUEST)'''
+
+
+class GetDPIsWithRadio(APIView):
+    def get(self, request):
+        try:
+            # Fetch all DPIs with at least one consultation linked to a radiological bilan
+            dpis_with_bilan = DPI.objects.filter(
+                consultations__bilan_radiologue__isnull=False
+            ).distinct()
+
+            # Check if any DPIs exist
+            if not dpis_with_bilan.exists():
+                return Response(
+                    {'message': 'No DPIs found with radiological bilans.'},
+                    status=status.HTTP_404_NOT_FOUND
+                )
+
+            # Serialize the DPIs with nested patient and utilisateur details
+            serializer = DPISerializer(dpis_with_bilan, many=True)
             return Response(serializer.data, status=status.HTTP_200_OK)
 
         except Exception as e:
