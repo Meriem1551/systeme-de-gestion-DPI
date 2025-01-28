@@ -198,8 +198,5 @@ class DPISerializer(serializers.ModelSerializer):
 
     class Meta:
         model = DPI
-<<<<<<< HEAD
         fields = ['patient']
-=======
-        fields = ['patient']
->>>>>>> ea38466d4b84382f96b1c083a700f64a2ec7dc83
+

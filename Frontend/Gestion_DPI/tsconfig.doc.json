@@ -1,0 +1,23 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+      "outDir": "./out-tsc/app",
+      "types": [
+        "node"
+      ],
+      "strict": true,
+      "noEmit": true,
+      "skipLibCheck": true
+    },
+    "include": [
+      "src/**/*.ts"      // Include all TypeScript files
+    ],
+    "exclude": [
+      "src/**/*.spec.ts", // Exclude test files
+      "node_modules/**",
+      "dist/**",
+      "src/test/**",
+      "e2e/**"
+    ]
+  }
+  

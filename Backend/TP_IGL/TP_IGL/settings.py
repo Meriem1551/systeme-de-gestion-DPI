@@ -62,7 +62,7 @@ INSTALLED_APPS = [
     'creationdpi',
     'miseajourdpi',
     'django_extensions',
-    'rest_framework_swagger',
+    #'rest_framework_swagger',
 
 
 ]
