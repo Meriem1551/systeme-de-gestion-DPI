@@ -120,18 +120,15 @@ DATABASES = {
         'PASSWORD': '30 may 05 30 may 05',
         'HOST': 'localhost',
         'PORT': '3306',
-=======  
-        "NAME": "mydjango_db",
-        "USER": "root",
-        "PASSWORD": "mysql2024",
+ 
 """
 DATABASES = {
 
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        'NAME': 'battabase',
-        'USER': 'root',
-        'PASSWORD': 'batta2004',
+        'NAME': 'IGL_DB',
+        'USER': 'fatma',
+        'PASSWORD': '30 may 05 30 may 05',
         "HOST": "localhost",
         "PORT": "3306",
 
