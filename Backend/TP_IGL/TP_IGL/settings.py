@@ -61,8 +61,7 @@ INSTALLED_APPS = [
     'miseajourdpi',
     'django_extensions',
     'rest_framework_swagger',
-
-
+    'drf_yasg',
 ]
 
 
