@@ -3,7 +3,7 @@ from django.contrib.auth import authenticate
 from rest_framework.exceptions import AuthenticationFailed
 from .models import User
 from django.utils import timezone
-from gestiondpi.models import Medecin, Infirmier, Laborantin, Radiologue, Admin, PharmacienHospitalier
+from gestiondpi.models import Medecin, Infirmier, Laborantin, Radiologue, Admin
 from rest_framework_simplejwt.tokens import RefreshToken, TokenError
 from django.contrib.auth import get_user_model
 
@@ -55,8 +55,6 @@ class UserRegisterSerializer(serializers.ModelSerializer):
             Medecin.objects.create(utilisateur=user, specialite=specialite)
         elif role == 'infirmier':
             Infirmier.objects.create(utilisateur=user)
-        elif role == 'pharmacien':
-            PharmacienHospitalier.objects.create(utilisateur=user)
         elif role == 'laborantin':
             Laborantin.objects.create(utilisateur=user)
         elif role == 'radiologue':

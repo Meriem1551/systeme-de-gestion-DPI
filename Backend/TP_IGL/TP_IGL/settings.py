@@ -115,9 +115,9 @@ WSGI_APPLICATION = "TP_IGL.wsgi.application"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'TP_IGL',
+        'NAME': 'IGL_DB',
         'USER': 'fatma',
-        'PASSWORD': '30 MAY 05 30 MAY 05',
+        'PASSWORD': '30 may 05 30 may 05',
         'HOST': 'localhost',
         'PORT': '3306',
     }
