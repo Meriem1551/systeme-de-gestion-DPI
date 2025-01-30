@@ -15,6 +15,6 @@ urlpatterns = [
      path('dpi/<int:dpi_id>/bilans-biologiques/', GetBilanBiologiquesByDPI.as_view(), name='get_bilan_biologiques_by_dpi'),
       path('dpi/<int:consultation_id>/biobilansparconsult/', GetBilanBiologiqueByConsultation.as_view(), name='get_bilan_biologiques_by_CON'),
       path('dpis/', GetDPIsWithBiologie.as_view(), name='get_dpibio')
-]
 
+]
 

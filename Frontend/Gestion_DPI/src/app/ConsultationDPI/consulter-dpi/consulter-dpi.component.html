@@ -8,47 +8,44 @@
  
    <div class="info">
       <div class="inf NSS">
-         <p>NSS</p><div><p class="text">NSS</p></div>
+         <p>NSS</p><div><p class="text">{{ dpiDetails.nss }}</p></div>
       </div>
       <div class="inf nom">
          <p>Nom</p>
-         <div><p class="text">Nom</p></div> 
+         <div><p class="text">{{ dpiDetails.nom_patient }}</p></div> 
       </div>
       <div class="inf prenom">
-         <p>Prenom</p><div><p class="text">Prenom</p></div>
+         <p>Prenom</p><div><p class="text">{{ dpiDetails.prenom_patient }}</p></div>
       </div>
       <div class="inf date">
-         <p>Date de naissance </p><div><p class="text">Date de naissance</p></div>
+         <p>Date de naissance </p><div><p class="text">{{ dpiDetails.date_de_naissance }}</p></div>
       </div>
       <div class="inf adr">
-         <p>Adresse</p><div><p class="text">Adresse</p></div>
+         <p>Adresse</p><div><p class="text">{{ dpiDetails.adresse }}</p></div>
       </div>
       <div class="inf tel">
-         <p>Téléphone</p><div><p class="text">Téléphone</p></div>
+         <p>Téléphone</p><div><p class="text">{{ dpiDetails.telephone }}</p></div>
       </div>
       <div class="inf perAContact">
-         <p>Personne à contacter</p><div><p class="text">Personne à contacter</p></div>
+         <p>Personne à contacter</p><div><p class="text">{{ dpiDetails.personne_a_contacter }}</p></div>
       </div>
       <div class="inf perAContact">
-         <p>Mutuelle</p><div><p class="text">Mutuelle</p></div>
+         <p>Mutuelle</p><div><p class="text">{{ dpiDetails.mutuelle }}</p></div>
       </div>
       <div class="inf perAContact">
-         <p>Medecin traitant</p><div><p class="text">Medecin traitant</p></div>
+         <p>Medecin traitant</p><div><p class="text">{{ dpiDetails.nom_complet_medecin }}</p></div>
       </div>
    </div>
    </div>
-  <!-- <div class="img">
-      <img src="" alt="">
 
-   </div>-->
 </div>
 <div class="sections">
  
    <div class="section">
-      <a href="#Consultations" >Consultations   </a>
+      <a [routerLink]="[]" [fragment]="'Consultations'" >Consultations   </a>
    </div>
    <div class="section">
-      <a href="#soins" >Soins infirmiers</a>
+      <a [routerLink]="[]" [fragment]="'soins'">Soins infirmiers</a>
    </div>
 </div>
 <div class="imgConsult">
@@ -61,17 +58,17 @@
 
       <ng-container matColumnDef="NConsultation" >
         <th mat-header-cell *matHeaderCellDef class="coloneconsult"> N° Consultation </th>
-        <td mat-cell *matCellDef="let element"> {{element.NConsultation}} </td>
+        <td mat-cell *matCellDef="let element; let i = index"> {{getConsultationNumber(i)}} </td>
       </ng-container>
 
       <ng-container matColumnDef="date" >
-        <th mat-header-cell *matHeaderCellDef class="coloneconsult"> date </th>
+        <th mat-header-cell *matHeaderCellDef class="coloneconsult"> Date </th>
         <td mat-cell *matCellDef="let element"> {{element.date}} </td>
       </ng-container>
       <ng-container matColumnDef="Ordo">
          <th mat-header-cell *matHeaderCellDef class="coloneconsult"> Ordonnance </th>
          <td mat-cell *matCellDef="let element">
-           <img *ngIf="element.Ordo === 'oui'" src="../../../assets/images/mingcute_paper-line.svg" class="imgcolore" alt="" (click)="openOrdonnance()">
+           <img *ngIf="element.Ordo === 'oui'" src="../../../assets/images/mingcute_paper-line.svg" class="imgcolore" alt="" (click)="openOrdonnance(element.NConsultation)">
            <img *ngIf="element.Ordo === 'non'" src="../../../assets/images/mingcute_paper-line_gris.svg" class="imggris" alt="">
          </td>
        </ng-container>
@@ -79,21 +76,21 @@
       <ng-container matColumnDef="Bilan_bio" class="bilans" >
         <th mat-header-cell *matHeaderCellDef class="coloneconsult">Bilan Biologique</th>
         <td mat-cell *matCellDef="let element">
-         <img *ngIf="element.Bilan_bio === 'oui'" src="../../../assets/images/mingcute_paper-line.svg" class="imgcolore" alt="" (click)="openBilanBio()">
+         <img *ngIf="element.Bilan_bio === 'oui'" src="../../../assets/images/mingcute_paper-line.svg" class="imgcolore" alt="" (click)="openBilanBio(element.NConsultation)">
          <img *ngIf="element.Bilan_bio === 'non'" src="../../../assets/images/mingcute_paper-line_gris.svg" class="imggris" alt="">
        </td>
       </ng-container>
       <ng-container matColumnDef="Bilan_rad" class="bilans" >
          <th mat-header-cell *matHeaderCellDef class="coloneconsult">Bilan Radiologique</th>
          <td mat-cell *matCellDef="let element">
-          <img *ngIf="element.Bilan_rad === 'oui'" src="../../../assets/images/mingcute_paper-line.svg" class="imgcolore" alt="" (click)="openBilanRad()">
+          <img *ngIf="element.Bilan_rad === 'oui'" src="../../../assets/images/mingcute_paper-line.svg" class="imgcolore" alt="" (click)="openBilanRad(element.NConsultation)">
           <img *ngIf="element.Bilan_rad === 'non'" src="../../../assets/images/mingcute_paper-line_gris.svg" class="imggris" alt="">
         </td>
        </ng-container>
       <ng-container matColumnDef="Resume" class="resume">
          <th mat-header-cell *matHeaderCellDef class="coloneconsult">Résumé</th>
          <td mat-cell *matCellDef="let element">
-            <img *ngIf="element.Resume === 'oui'" src="../../../assets/images/mingcute_paper-line.svg" class="imgcolore" alt="" (click)="openResume()">
+            <img *ngIf="element.Resume === 'oui'" src="../../../assets/images/mingcute_paper-line.svg" class="imgcolore" alt="" (click)="openResume(element.NConsultation)">
             <img *ngIf="element.Resume === 'non'" src="../../../assets/images/mingcute_paper-line_gris.svg" class="imggris" alt="">
           </td>
        </ng-container>
@@ -101,6 +98,9 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
+</div>
+<div class="ajoutercnsult" *ngIf="showButton">
+   <button (click)="navigateToCreationDpi()">Ajouter Consultation</button>
 </div>
 <div id="soins" class="tabConsult2">
    <h2>Vos Soins infirmiers</h2>

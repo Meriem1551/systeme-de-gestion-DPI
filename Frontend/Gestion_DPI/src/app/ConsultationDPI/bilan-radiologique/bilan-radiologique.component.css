@@ -3,17 +3,18 @@
 .btn {
     cursor: pointer;
   }
-.container {
+.containerBrad {
 
     position: relative;
     margin-top: -7%;
   }
   
-  .container h2 {
+  .containerBrad  h2 {
     font-family: 'Montserrat', sans-serif;
     color: #242855;
     font-size: 2rem;
     margin-bottom: 6%;
+    text-align: center;
   }
 
   .paragraphs{

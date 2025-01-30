@@ -1,0 +1,1025 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>gestion-dpi documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">gestion-dpi documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  BilanRadiologiqueComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/bilan-radiologique/bilan-radiologique.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-bilan-radiologique</code></td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                                <code><a href="../components/HeaderComponent.html" target="_self" >HeaderComponent</a></code>
+                            <code>FormsModule</code>
+                            <code>CommonModule</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./bilan-radiologique.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./bilan-radiologique.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#bilanRadiologique" >bilanRadiologique</a>
+                            </li>
+                            <li>
+                                <a href="#modalMessage" >modalMessage</a>
+                            </li>
+                            <li>
+                                <a href="#showModal" >showModal</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#closeModal" >closeModal</a>
+                            </li>
+                            <li>
+                                <a href="#navigateToConsultation" >navigateToConsultation</a>
+                            </li>
+                            <li>
+                                <a href="#saveBilanRadiologique" >saveBilanRadiologique</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(consultationService: <a href="../injectables/ConsultationService.html" target="_self">ConsultationService</a>, router: Router)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/bilan-radiologique/bilan-radiologique.component.ts:19</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>consultationService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ConsultationService.html" target="_self" >ConsultationService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="closeModal"></a>
+                    <span class="name">
+                        <span ><b>closeModal</b></span>
+                        <a href="#closeModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>closeModal()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="53"
+                                    class="link-to-prism">src/app/bilan-radiologique/bilan-radiologique.component.ts:53</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="navigateToConsultation"></a>
+                    <span class="name">
+                        <span ><b>navigateToConsultation</b></span>
+                        <a href="#navigateToConsultation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>navigateToConsultation()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="49"
+                                    class="link-to-prism">src/app/bilan-radiologique/bilan-radiologique.component.ts:49</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="saveBilanRadiologique"></a>
+                    <span class="name">
+                        <span ><b>saveBilanRadiologique</b></span>
+                        <a href="#saveBilanRadiologique"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>saveBilanRadiologique()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="25"
+                                    class="link-to-prism">src/app/bilan-radiologique/bilan-radiologique.component.ts:25</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="bilanRadiologique"></a>
+                    <span class="name">
+                        <span ><b>bilanRadiologique</b></span>
+                        <a href="#bilanRadiologique"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/BilanRadiologique.html" target="_self" >BilanRadiologique</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/bilan-radiologique/bilan-radiologique.component.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="modalMessage"></a>
+                    <span class="name">
+                        <span ><b>modalMessage</b></span>
+                        <a href="#modalMessage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/bilan-radiologique/bilan-radiologique.component.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showModal"></a>
+                    <span class="name">
+                        <span ><b>showModal</b></span>
+                        <a href="#showModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/bilan-radiologique/bilan-radiologique.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+import { HeaderComponent } from &#x27;../header-component/header.component&#x27;;
+import { ConsultationService } from &#x27;../services/consultation.service&#x27;;
+import { FormsModule } from &#x27;@angular/forms&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { BilanRadiologique } from &#x27;../models/consultation.model&#x27;;
+
+@Component({
+  selector: &#x27;app-bilan-radiologique&#x27;,
+  templateUrl: &#x27;./bilan-radiologique.component.html&#x27;,
+  imports: [HeaderComponent, FormsModule, CommonModule],
+  styleUrls: [&#x27;./bilan-radiologique.component.css&#x27;]
+})
+export class BilanRadiologiqueComponent {
+  bilanRadiologique : BilanRadiologique ;
+
+  showModal: boolean &#x3D; false;
+  modalMessage: string &#x3D; &#x27;&#x27;;
+
+  constructor(private consultationService: ConsultationService, private router: Router) {
+    this.bilanRadiologique &#x3D; this.consultationService.getConsultation().bilan_radiologue;
+  }
+
+  saveBilanRadiologique() {
+    if (!this.bilanRadiologique.type &amp;&amp; !this.bilanRadiologique.description) {
+      this.modalMessage &#x3D; &#x27;Veuillez remplir le bilan et sélectionner un type avant d\&#x27;enregistrer.&#x27;;
+      this.showModal &#x3D; true ;
+    } else {
+    if (!this.bilanRadiologique.type) {
+      this.modalMessage &#x3D; &#x27;Veuillez sélectionner un type de bilan radiologique.&#x27;;
+      this.showModal &#x3D; true ;
+    } else {
+
+    if (!this.bilanRadiologique.description) {
+      this.modalMessage &#x3D; &#x27;Veuillez remplir le bilan avant de l\&#x27;enregistrer.&#x27;;
+      this.showModal &#x3D; true ;
+    } else {
+
+    this.consultationService.updateConsultation(&#x27;bilan_radiologue&#x27;, this.bilanRadiologique);
+    this.modalMessage &#x3D; &#x27;Bilan radiologique enregistré !&#x27;;
+    this.showModal &#x3D; true ;
+    this.router.navigate([&#x27;/creation-consult&#x27;]);
+    }
+  }
+  }
+  }
+
+  navigateToConsultation() {
+    this.router.navigate([&#x27;/creation-consult&#x27;]);
+  }
+
+  closeModal() {
+    this.showModal &#x3D; false;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;app-header /&gt;
+&lt;div class&#x3D;&quot;form-container&quot;&gt;
+  &lt;!-- Titre --&gt;
+  &lt;h2&gt;Examen Radiologique&lt;/h2&gt;
+
+  &lt;!-- Formulaire --&gt;
+  &lt;form (ngSubmit)&#x3D;&quot;saveBilanRadiologique()&quot;&gt;
+    &lt;!-- Zone de texte pour la description --&gt;
+    &lt;textarea 
+      [(ngModel)]&#x3D;&quot;bilanRadiologique.description&quot; 
+      name&#x3D;&quot;description&quot; 
+      placeholder&#x3D;&quot;Veuillez rédiger l’examen radiologique ici ...&quot; 
+      rows&#x3D;&quot;5&quot; 
+      required&gt;
+    &lt;/textarea&gt;
+
+    &lt;!-- Conteneur pour image et choix --&gt;
+    &lt;div class&#x3D;&quot;radiology-flex&quot;&gt;
+      &lt;!-- Illustration --&gt;
+      &lt;div class&#x3D;&quot;radiology-image&quot;&gt;
+        &lt;img src&#x3D;&quot;assets/radiology-illustration.png&quot; alt&#x3D;&quot;Radiology Illustration&quot;&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Section pour le choix du type de bilan --&gt;
+      &lt;div class&#x3D;&quot;radiology-options&quot;&gt;
+        &lt;label class&#x3D;&quot;type-label&quot;&gt;Choisissez le type du bilan&lt;/label&gt;
+        &lt;div class&#x3D;&quot;checkbox-group&quot;&gt;
+          &lt;label&gt;
+            &lt;input type&#x3D;&quot;radio&quot; [(ngModel)]&#x3D;&quot;bilanRadiologique.type&quot; name&#x3D;&quot;type&quot; value&#x3D;&quot;IRM&quot; required&gt;
+            IRM
+          &lt;/label&gt;
+          &lt;label&gt;
+            &lt;input type&#x3D;&quot;radio&quot; [(ngModel)]&#x3D;&quot;bilanRadiologique.type&quot; name&#x3D;&quot;type&quot; value&#x3D;&quot;Échographie&quot; required&gt;
+            Échographie
+          &lt;/label&gt;
+          &lt;label&gt;
+            &lt;input type&#x3D;&quot;radio&quot; [(ngModel)]&#x3D;&quot;bilanRadiologique.type&quot; name&#x3D;&quot;type&quot; value&#x3D;&quot;Radiographie&quot; required&gt;
+            Radiographie
+          &lt;/label&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Boutons --&gt;
+    &lt;div class&#x3D;&quot;button-group&quot;&gt;
+      &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;button-cancel&quot; (click)&#x3D;&quot;navigateToConsultation()&quot;&gt;Annuler&lt;/button&gt;
+      &lt;button type&#x3D;&quot;submit&quot; class&#x3D;&quot;button-confirm&quot;&gt;Confirmer&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/form&gt;
+
+  &lt;!-- Modale --&gt;
+  &lt;div class&#x3D;&quot;modal&quot; *ngIf&#x3D;&quot;showModal&quot;&gt;
+    &lt;div class&#x3D;&quot;modal-content&quot;&gt;
+      &lt;p&gt;{{ modalMessage }}&lt;/p&gt;
+      &lt;button (click)&#x3D;&quot;closeModal()&quot;&gt;Fermer&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./bilan-radiologique.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">body {
+    font-family: Nunito, sans-serif;
+    background-color: #F4F7F6;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden; /* Éviter le dépassement */
+  }
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    padding: 20px;
+    position: relative;
+    width : 90% ;
+    margin : auto ;
+}
+
+h2 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #000;
+    font-family: &#x27;Montserrat&#x27;, sans-serif;
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    border: 3px solid #25a294;
+    border-radius: 5px;
+    display: inline-block;
+    width: 65%;
+  }
+
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    margin : auto ;
+  }
+
+  form textarea {
+    width: 80%; /* Largeur presque complète */
+    max-width: 800px; /* Limite maximale */
+    /*height: 300px;*/
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #4a4a4a;
+    border-radius: 6px;
+    font-size: 16px;
+    font-family: &#x27;Nunito&#x27;, sans-serif;
+    color: #7a7a7a;
+    box-sizing: border-box;
+    resize: none; /* Désactiver le redimensionnement */
+  }
+  
+  form textarea::placeholder {
+    color: #d9d9d9;
+    font-family: &#x27;Nunito&#x27;, sans-serif;
+    font-size: 14px;
+  }
+
+  form .button-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+  }
+  
+  form .button-cancel,
+  form .button-confirm {
+    font-family: &#x27;Montserrat&#x27;, sans-serif;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  form .button-cancel {
+    background-color: black;
+    color: white;
+    border: solid 1px black;
+    border-radius: 5px;
+  }
+  
+  form .button-confirm {
+    background-color: #4ed6c4;
+    color: white;
+    border: solid 1px #4ed6c4;
+    border-radius: 5px;
+  }
+  
+  form .button-cancel:hover {
+    background-color: white;
+    color: black;
+    border: solid 1px black;
+  }
+  
+  form .button-confirm:hover {
+    background-color: white;
+    color: #4ed6c4;
+    border: solid 1px #4ed6c4;
+  }
+
+/* Conteneur pour image et options */
+.radiology-flex {
+    display: flex;
+    justify-content: space-between; /* Aligne les éléments aux extrémités */
+    align-items: flex-start; /* Aligne les éléments en haut */
+    width: 80%; 
+    margin: auto;
+  }
+  
+  /* Conteneur de l&#x27;image */
+.radiology-image {
+    flex: 1; /* Permet au conteneur de s&#x27;adapter */
+    display: flex;
+    justify-content: flex-start; /* Aligne l&#x27;image à gauche */
+    align-items: center;
+  }
+  
+  /* Image */
+  .radiology-image img {
+    width: 100%; /* L&#x27;image occupe toute la largeur du conteneur */
+    height: auto; /* Maintient les proportions */
+    max-width: 250px; /* Limite maximale pour éviter qu&#x27;elle devienne trop grande */
+    object-fit: contain; /* Garde tout visible dans le conteneur */
+  }
+  
+
+  @media (max-width: 930px) { 
+    .radiology-image {
+        display : none ;
+    }
+    .radiology-options {
+        margin : auto ;
+    }
+}
+  
+  /* Conteneur des options */
+  .radiology-options {
+    flex: 0 0 auto; /* Fixe la taille en fonction du contenu */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Aligne les éléments en haut */
+    align-items: flex-start; /* Aligne les options à droite */
+    gap: 10px;
+  }
+  
+
+  .type-label {
+    font-size : 0.9rem ;
+    font-weight: bold;
+    color: #000;
+    font-family: &#x27;Montserrat&#x27;, sans-serif;
+    text-align: center;
+    margin-bottom: 5px;
+    padding: 10px 20px;
+    border: 3px solid #25a294;
+    border-radius: 5px;
+    display: inline-block;
+  }
+  
+  .checkbox-group label {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    font-family: Montserrat, sans-serif;
+    color: black;
+    margin-bottom : 15px ;
+    margin-left : 5px; 
+  }
+  
+  /* Style pour les cases à cocher */
+.checkbox-group input[type&#x3D;&quot;radio&quot;] {
+    appearance: none; /* Enlève le style par défaut */
+    width: 20px; /* Taille du carré */
+    height: 20px;
+    border: 2px solid #4ed6c4; /* Bordure */
+    border-radius: 3px; /* Carré avec des coins légèrement arrondis */
+    outline: none;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    margin-right : 10px ;
+  }
+  
+  /* Style lorsque la case est sélectionnée */
+  .checkbox-group input[type&#x3D;&quot;radio&quot;]:checked {
+    background-color: #4ed6c4; /* Remplissage */
+  }
+  
+  .checkbox-group input[type&#x3D;&quot;radio&quot;]:checked::after {
+    content: &#x27;🗸&#x27;; /* Check mark */
+    color: black;
+    font-size: 2.5em;
+    font-weight : 700 ;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  
+
+/* Modale */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .modal-content p {
+    font-size: 16px;
+    font-family: Nunito, sans-serif;
+    margin-bottom: 20px;
+  }
+  
+  .modal-content button {
+    background-color: black;
+    color: white;
+    border: solid 1px black;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+  }
+  
+  .modal-content button:hover {
+    background-color: white;
+    color: black;
+    border: solid 1px black;
+  }
+  </code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><app-header /><div class="form-container">  <!-- Titre -->  <h2>Examen Radiologique</h2>  <!-- Formulaire -->  <form (ngSubmit)="saveBilanRadiologique()">    <!-- Zone de texte pour la description -->    <textarea       [(ngModel)]="bilanRadiologique.description"       name="description"       placeholder="Veuillez rédiger l’examen radiologique ici ..."       rows="5"       required>    </textarea>    <!-- Conteneur pour image et choix -->    <div class="radiology-flex">      <!-- Illustration -->      <div class="radiology-image">        <img src="assets/radiology-illustration.png" alt="Radiology Illustration">      </div>      <!-- Section pour le choix du type de bilan -->      <div class="radiology-options">        <label class="type-label">Choisissez le type du bilan</label>        <div class="checkbox-group">          <label>            <input type="radio" [(ngModel)]="bilanRadiologique.type" name="type" value="IRM" required>            IRM          </label>          <label>            <input type="radio" [(ngModel)]="bilanRadiologique.type" name="type" value="Échographie" required>            Échographie          </label>          <label>            <input type="radio" [(ngModel)]="bilanRadiologique.type" name="type" value="Radiographie" required>            Radiographie          </label>        </div>      </div>    </div>    <!-- Boutons -->    <div class="button-group">      <button type="button" class="button-cancel" (click)="navigateToConsultation()">Annuler</button>      <button type="submit" class="button-confirm">Confirmer</button>    </div>  </form>  <!-- Modale -->  <div class="modal" *ngIf="showModal">    <div class="modal-content">      <p>{{ modalMessage }}</p>      <button (click)="closeModal()">Fermer</button>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BilanBiologiqueComponent', 'selector': 'app-bilan-biologique'},{'name': 'BilanBiologiqueComponent', 'selector': 'app-bilan-biologique'},{'name': 'BilanRadiologiqueComponent', 'selector': 'app-bilan-radiologique'},{'name': 'BilanRadiologiqueComponent', 'selector': 'app-bilan-radiologique'},{'name': 'ConsultationHomeComponent', 'selector': 'app-consultation-home'},{'name': 'ConsulterDpiComponent', 'selector': 'app-consulter-dpi'},{'name': 'CreationDPIComponent', 'selector': 'app-creation-dpi'},{'name': 'FenetreRadiologueComponent', 'selector': 'app-fenetre-radiologue'},{'name': 'GenererGraphe', 'selector': 'dialog-generer-graphe'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LandingPageComponent', 'selector': 'app-landing-page'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MainHeaderComponent', 'selector': 'app-main-header'},{'name': 'OrdonnanceComponent', 'selector': 'app-ordonnance'},{'name': 'OrdonnanceComponent', 'selector': 'app-ordonnance'},{'name': 'PageInfirmierComponent', 'selector': 'app-page-infirmier'},{'name': 'PageLaborantinComponent', 'selector': 'app-page-laborantin'},{'name': 'PageRadiologueComponent', 'selector': 'app-page-radiologue'},{'name': 'PatientSelectionComponent', 'selector': 'app-patient-selection'},{'name': 'RecherchePatientComponent', 'selector': 'app-recherche-patient'},{'name': 'RemplirResultat', 'selector': 'dialog-remplir-resultat'},{'name': 'ResumeComponent', 'selector': 'app-resume'},{'name': 'ResumeComponent', 'selector': 'app-resume'},{'name': 'SoinFormComponent', 'selector': 'app-soin-form'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'BilanRadiologiqueComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'BilanRadiologiqueComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

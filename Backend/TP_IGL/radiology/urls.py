@@ -8,5 +8,6 @@ urlpatterns = [
      path('dpi/<int:consultation_id>/bilanparconsult/', GetBilanRadiologiqueByConsultation.as_view(), name='get_bilan_byconsultation'),
        path('dpis/', GetDPIsWithRadio.as_view(), name='getdpiradio'),
      
+
 ]
 

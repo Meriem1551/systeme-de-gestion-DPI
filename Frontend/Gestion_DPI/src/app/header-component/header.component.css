@@ -1,44 +1,68 @@
 * {
-    margin: 0;
-    padding: 0;
-
-    background-color: white;
-
+  margin: 0;
+  padding: 0;
+  background-color: white;
 }
 
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding : 5px;
-    margin : 0;
-    border-bottom: 2px solid #A4A4A4;
-  }
-  
-  .header-text {
-    font-size : clamp(1rem, 1.5vw, 1.4em);
-    font-weight: bold;
-    font-family: 'Montserrat', sans-serif;
-    color: #4a4a4a;
-    margin-left : 5px;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  margin: 0;
+  border-bottom: 2px solid #A4A4A4;
+}
 
-  
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.header-text {
+  font-size: clamp(1rem, 1.5vw, 1.4em);
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  color: #4a4a4a;
+  margin-left: 10px; /* Add space between logo and text */
+}
+
+.header-logo {
+  height: 6.5vh;
+  min-height: 30px;
+  width: auto;
+  margin-right: 5px;
+  cursor: pointer;
+  padding: 2px;
+}
+
+.header-right {
+  margin-right: 10px; /* Adjust as needed */
+}
+
+.logout-text {
+  font-family: Montserrat, sans-serif;
+  font-size: 16px;
+  font-weight: 500; 
+  color: var(--Tundora); 
+  cursor: pointer; 
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+.logout-text:hover {
+  color: var(--Turquoise);
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
   .header-logo {
-    height: 6.5vh;
-    min-height : 30px ;
+    height: 30px;
     width: auto;
-    margin-right : 5px;
-    cursor: pointer;
-    padding : 2px ;
   }
-  
-  @media (max-width: 600px) {
-    .header-logo {
-        height: 30px;
-        width : auto;
-    }
-    .header-text {
-        font-size : 1rem;
-    }
+  .header-text {
+    font-size: 1rem;
+  }
+  .logout-text {
+    font-size: 0.9rem;
+  }
 }

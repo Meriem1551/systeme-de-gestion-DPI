@@ -9,7 +9,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatButtonModule} from '@angular/material/button';
 import {OnInit } from '@angular/core';
 import { LaborantinService } from '../laborantin.service';
-import { Chart,CategoryScale,BarController, LinearScale, BarElement, Title, Tooltip, Legend, UpdateModeEnum} from 'chart.js';
+import { Inject } from '@angular/core';
+import { Chart,CategoryScale,BarController, LinearScale, BarElement, Title, Tooltip, Legend, UpdateModeEnum, ChartOptions,ChartConfiguration,} from 'chart.js';
 import {
   MAT_DIALOG_DATA,
   MatDialog,
@@ -122,7 +123,7 @@ selectedBilanId: number | null = null;
       width: '80vw',
       height: 'auto',
       maxWidth: '80vw',
-      data: { bilan_id: row.bilan_id }, // Pass bilan_id here
+      data: { bilan_id: row.bilan_id, id_dpi: this.patientSelecione.id_dpi, }, // Pass bilan_id here
     });
   
     dialogRef.afterClosed().subscribe(result => {
@@ -145,7 +146,6 @@ selectedBilanId: number | null = null;
     MatExpansionModule,
     CommonModule,
     MatButtonModule
-
   ],
 })
 
@@ -179,17 +179,18 @@ export class RemplirResultat {
     this.divs = this.divs.filter(div => div.id !== id);
   }
   readonly dialog = inject(MatDialog);
-  openDialog_genererGraphe(): void{
+  openDialog_genererGraphe(): void {
+  
     const dialogRef = this.dialog.open(GenererGraphe, {
-      width: '80vw', 
-      height: 'auto',  
+      width: '80vw',
+      height: 'auto',
       maxWidth: '80vw',
-      data: {},
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      data: {
+        id_dpi: this.data.id_dpi,
+      },
     });
   }
+  
  
   enregistrer() {
     this.isDisable = false;
@@ -200,40 +201,41 @@ export class RemplirResultat {
         alert(`Paramètre "${div.parametre}" non valide`);
         throw new Error(`Invalid paramètre: ${div.parametre}`);
       }
-
+  
       return {
         "id-mesure": matchedParam.id, // Send the ID of the parameter
         "valeur_mesure": div.valeur,
         "date_mesure": div.date,
       };
     });
+  
     const bilan_id = this.data.bilan_id;
     const updateData = {
       bilan_id: bilan_id, // Include the bilan_id passed from the parent
       laborantin_id: 1,
       mesure: mesures,
     };
-
+  
     this.laborantinUpdate.postBilanResultat(updateData).subscribe({
       next: response => {
         console.log("L'ajout des paramètres a réussi", response);
-        alert(`L'ajout des paramètres a réussi`);
-        this.dialogRef.close(); // Close dialog after success
+        // Show a success message (optional), but keep the dialog open
+        alert("Les données ont été enregistrées avec succès.");
       },
       error: err => {
         console.log("L'ajout des paramètres a échoué", err);
-          console.error("Failed to send data:", err.error); // Log the error body
-          alert(`Erreur: ${JSON.stringify(err.error)}`);
+        console.error("Failed to send data:", err.error); // Log the error body
       },
     });
   }
+  
 }
 
 
 interface Graphe{
   nom : string;
-  valAnc : string;
-  valNouv : string
+  valAnc : number;
+  valNouv : number
 }
 @Component({
   selector: 'dialog-generer-graphe',
@@ -247,23 +249,25 @@ interface Graphe{
     MatDialogActions,
     MatDialogClose,
     MatExpansionModule,
-    CommonModule
+    CommonModule,
+
   ],
 })
 
-export class GenererGraphe implements AfterViewInit{
+
+
+
+export class GenererGraphe implements OnInit{
   readonly dialogRef = inject(MatDialogRef<GenererGraphe>);
-  // readonly data = inject<DialogData>(MAT_DIALOG_DATA);
+  readonly data = inject(MAT_DIALOG_DATA);
 
-   graphe : Graphe[]=[
-    {nom: 'Cholestérol total', valAnc: '12', valNouv:'7'},
-    {nom: 'HDL', valAnc: '5', valNouv:'13'},
-    {nom: ' LDL ', valAnc: '12', valNouv:'4'},
-   ]
 
+   graphe : Graphe[]=[]
+   valAnc: any[] = [];
+   valNouv: any[] = [];
    chart: any;
 
-   constructor() {
+   constructor(private drawingGrapheService: LaborantinService) {
     Chart.register(
       CategoryScale, 
       LinearScale,    
@@ -276,16 +280,38 @@ export class GenererGraphe implements AfterViewInit{
   }
 
   ngOnInit(): void {
+    this.fetchGraphData(this.data.id_dpi);
   }
 
-  ngAfterViewInit(): void {
-    this.createChart();
-  }
 
+  fetchGraphData(id_dpi: number): void {
+    this.drawingGrapheService.getGraphData(id_dpi).subscribe({
+      next: data => {
+        // Process data directly into grapheObject
+        data.parametres.forEach((param: any) => {
+          const grapheObject: Graphe = {
+            nom: param.nom, // Assuming param.nom exists
+            valAnc: param.mesurebefore, // Directly use mesurebefore
+            valNouv: param.mesureafter, // Directly use mesureafter
+          };
+          this.graphe.push(grapheObject); // Push directly to graphe array
+        });
+  
+        // Create the chart with the processed data
+        this.createChart();
+      },
+      error: err => {
+        console.error('Error fetching graph data', err);
+      }
+    });
+  }
   createChart() {
     const labels = this.graphe.map(item => item.nom);
-    const valAnc = this.graphe.map(item => parseFloat(item.valAnc));
-    const valNouv = this.graphe.map(item => parseFloat(item.valNouv));
+    console.log(labels);
+    const valAnc = this.graphe.map(item => item.valAnc);
+    console.log(valAnc);
+    const valNouv = this.graphe.map(item => item.valNouv);
+    console.log(valNouv);
 
     const ctx = document.getElementById('barChart') as HTMLCanvasElement;  
     if (ctx) {

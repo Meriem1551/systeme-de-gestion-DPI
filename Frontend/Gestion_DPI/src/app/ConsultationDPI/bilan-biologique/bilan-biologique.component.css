@@ -1,17 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
 
-.container {
+.containerBbio{
     gap: 14%;
     position: relative;
     margin-top: -3%;
   }
   
-  .container h2 {
+  .containerBbio h2 {
     font-family: 'Nunito', sans-serif;
     color: #242855;
     font-size: 2rem;
     margin-bottom: 6%;
+    text-align: center;
   }
 /* Style général pour le tableau */
 .table {

@@ -1,6 +1,6 @@
 <app-header></app-header>
-<div class="container">
-    <h2>Saisie des Resultats des Radios</h2>
+<div class="containerRad">
+    <h2>Saisie des <span class="title-gradient">Resultats d'Imagerie</span></h2>
     <div class="select-container">
 
         <div class="select">
@@ -9,25 +9,20 @@
         <div class="dropdown-container">
             <div class="dropdown-container">
                 <div class="dropdown-label" (click)="toggleDropdown()">
-                   {{ selectedValue || 'cliquer pour choisir un patient' }}
+                   {{ selectedValue.name || 'Cliquer pour choisir un patient' }}
                  </div>
                  <ul *ngIf="dropdownOpen" class="dropdown-list">
                  <li *ngFor="let patient of listPatients" (click)="selectItem(patient); $event.stopPropagation();">
-                 {{ patient }}
+                 {{ patient.name }}
                  </li>
                  </ul>
             </div>
             
         </div>
     </div>
-    <div *ngIf="selectedValue" class="details-table">
-        <p>Bilan biologique de  {{ selectedValue }}</p>
+    <div *ngIf="selectedValue.name" class="details-table">
+        <p>Bilans biologiques de  {{ selectedValue.name }}</p>
         <table mat-table [dataSource]="dataSource" class="tabbilans">
-
-            <ng-container matColumnDef="Date">
-              <th mat-header-cell *matHeaderCellDef class="coloneradilog"> Date </th>
-              <td mat-cell *matCellDef="let element"> {{element.date}} </td>
-            </ng-container>
         
             <ng-container matColumnDef="Type">
               <th mat-header-cell *matHeaderCellDef class="coloneradilog"> Type </th>

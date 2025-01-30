@@ -31,10 +31,8 @@ def setup_data(db):
     )
 
     patient = Patient.objects.create(
-<<<<<<< HEAD
-=======
+
         NSS = "111111",
->>>>>>> d00efe31b7deaa069ca3991ebafad176a081ced2
         utilisateur=patient_user,
         date_de_naissance = datetime(1995, 12, 15)
     )
@@ -50,35 +48,6 @@ def setup_data(db):
         "client": APIClient(),
         "url": "/api/miseajourdpi/ajouterConsultation/",
         "dpi": dpi,
-<<<<<<< HEAD
-        "valid_data": {
-            "dpi": dpi.id_dpi,
-            "resume": {
-                "diagnostic": "Test Diagnostic",
-                "symptomes": "Test Symptomes",
-                "antecedents": "Test Antecedents",
-                "autres_informations": "Other Information",
-            },
-            "ordonnance": {
-                "date_prescription": "2025-05-30",
-                "etat_ordonnance": True,
-                "prescription": [
-                    {
-                        "dose": "500mg",
-                        "duree": "5 days",
-                        "medicament": {
-                            "nom": "Paracetamol",
-                            "description": "Painkiller",
-                            "prix": 10.0,
-                            "quantite": 20,
-                        },
-                    }
-                ],
-            },
-            "bilan_biologique": {"description": "Normal blood work"},
-            "bilan_radiologique": {"description": "No issues", "type": "X-ray"},
-        }
-=======
         "valid_data":{
         "nss": "111111",  
     "resume": {
@@ -104,7 +73,6 @@ def setup_data(db):
         "type": "string"
     }
 }
->>>>>>> d00efe31b7deaa069ca3991ebafad176a081ced2
     }
 
 
@@ -123,13 +91,8 @@ def test_ajouter_consultation_success(setup_data):
     assert Consultation.objects.count() == 1
 
     # Assert that the response contains the correct data
-<<<<<<< HEAD
-    consultation = Consultation.objects.first()
-    assert consultation.dpi.id_dpi == valid_data["dpi"]
-    assert response.data["resume"]["diagnostic"] == "Test Diagnostic"
-=======
     assert response.data["resume"]["diagnostic"] == "string"
->>>>>>> d00efe31b7deaa069ca3991ebafad176a081ced2
+
 
 
 def test_ajouter_consultation_invalid_data(setup_data):
@@ -139,19 +102,12 @@ def test_ajouter_consultation_invalid_data(setup_data):
 
     # Send a POST request with invalid data (e.g., missing dpi)
     invalid_data = valid_data.copy()
-<<<<<<< HEAD
-    invalid_data.pop("dpi")
-=======
+
     invalid_data.pop("resume")
->>>>>>> d00efe31b7deaa069ca3991ebafad176a081ced2
     response = client.post(url, invalid_data, format="json")
 
     # Assert the response status code
     assert response.status_code == status.HTTP_400_BAD_REQUEST
 
     # Assert that no Consultation object was created
-<<<<<<< HEAD
     assert Consultation.objects.count() == 0
-=======
-    assert Consultation.objects.count() == 0
->>>>>>> d00efe31b7deaa069ca3991ebafad176a081ced2

@@ -6,13 +6,13 @@
     outline: none;*/
     cursor: pointer;
   }
-.container {
+.containerFRad {
 
     position: relative;
     margin-top: -7%;
   }
   
-  .container h2 {
+  .containerFRad h2 {
     font-size: 1.5rem; /* Taille du texte */
     font-weight: bold;
     text-align: center; /* Centrage */
@@ -44,12 +44,14 @@
     
     border: #3BD6CC solid 0.2rem; /* Bordure verte */
     border-radius: 1rem; /* Coins arrondis */
-    width: 90%; /* Augmente la largeur du cadre */
+    width: 95%; /* Augmente la largeur du cadre */
     height: 6rem;
     padding: 0.7rem; /* Ajoute de l'espace à l'intérieur du cadre */
     background-color: #f9f9f9; /* Couleur d'arrière-plan pour le contraste */
     font-family: 'Nunito', sans-serif;
-    text-align: left;    
+    text-align: left;  
+    margin-left: 2%;
+
     }
   
     .paragraph p{
@@ -71,23 +73,7 @@
     font-size: 1rem;
     margin-top: 1%;
   }
-  .imgmed{
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    margin-top: -1%;
-
-  }
-  .imgmed button{
-   width: 28rem;
-   text-align: left;
-   background-color: white;
-   color: #3BD6CC;
-   border: #CFCDCD solid 0.1rem;
-
-   cursor: pointer;
-  }
-  /* Style personnalisé pour le bouton de sélection */
+  
 .custom-file-upload {
     position: relative;
     display: inline-block;

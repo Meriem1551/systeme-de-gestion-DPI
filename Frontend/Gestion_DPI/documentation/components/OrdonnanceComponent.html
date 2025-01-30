@@ -1,0 +1,1083 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>gestion-dpi documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">gestion-dpi documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  OrdonnanceComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/ordonnance/ordonnance.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-ordonnance</code></td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                                <code><a href="../components/HeaderComponent.html" target="_self" >HeaderComponent</a></code>
+                            <code>CommonModule</code>
+                            <code>FormsModule</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./ordonnance.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./ordonnance.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#modalMessage" >modalMessage</a>
+                            </li>
+                            <li>
+                                <a href="#ordonnance" >ordonnance</a>
+                            </li>
+                            <li>
+                                <a href="#prescription" >prescription</a>
+                            </li>
+                            <li>
+                                <a href="#showModal" >showModal</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#addPrescription" >addPrescription</a>
+                            </li>
+                            <li>
+                                <a href="#cancel" >cancel</a>
+                            </li>
+                            <li>
+                                <a href="#closeModal" >closeModal</a>
+                            </li>
+                            <li>
+                                <a href="#confirm" >confirm</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(consultationService: <a href="../injectables/ConsultationService.html" target="_self">ConsultationService</a>, router: Router)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/ordonnance/ordonnance.component.ts:20</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>consultationService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ConsultationService.html" target="_self" >ConsultationService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addPrescription"></a>
+                    <span class="name">
+                        <span ><b>addPrescription</b></span>
+                        <a href="#addPrescription"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>addPrescription()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="26"
+                                    class="link-to-prism">src/app/ordonnance/ordonnance.component.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cancel"></a>
+                    <span class="name">
+                        <span ><b>cancel</b></span>
+                        <a href="#cancel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>cancel()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="50"
+                                    class="link-to-prism">src/app/ordonnance/ordonnance.component.ts:50</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="closeModal"></a>
+                    <span class="name">
+                        <span ><b>closeModal</b></span>
+                        <a href="#closeModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>closeModal()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="54"
+                                    class="link-to-prism">src/app/ordonnance/ordonnance.component.ts:54</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="confirm"></a>
+                    <span class="name">
+                        <span ><b>confirm</b></span>
+                        <a href="#confirm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>confirm()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="37"
+                                    class="link-to-prism">src/app/ordonnance/ordonnance.component.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="modalMessage"></a>
+                    <span class="name">
+                        <span ><b>modalMessage</b></span>
+                        <a href="#modalMessage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/ordonnance/ordonnance.component.ts:20</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ordonnance"></a>
+                    <span class="name">
+                        <span ><b>ordonnance</b></span>
+                        <a href="#ordonnance"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Ordonnance.html" target="_self" >Ordonnance</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/ordonnance/ordonnance.component.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="prescription"></a>
+                    <span class="name">
+                        <span ><b>prescription</b></span>
+                        <a href="#prescription"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Prescription.html" target="_self" >Prescription</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{ dose: &#x27;&#x27;, duree: &#x27;&#x27;, medicament: &#x27;&#x27; }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/ordonnance/ordonnance.component.ts:17</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showModal"></a>
+                    <span class="name">
+                        <span ><b>showModal</b></span>
+                        <a href="#showModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/ordonnance/ordonnance.component.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { Ordonnance, Prescription } from &#x27;../models/consultation.model&#x27;;
+import { HeaderComponent } from &#x27;../header-component/header.component&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { FormsModule } from &#x27;@angular/forms&#x27;;
+import { ConsultationService } from &#x27;../services/consultation.service&#x27;;
+
+@Component({
+  selector: &#x27;app-ordonnance&#x27;,
+  imports: [HeaderComponent, CommonModule, FormsModule],
+  templateUrl: &#x27;./ordonnance.component.html&#x27;,
+  styleUrls: [&#x27;./ordonnance.component.css&#x27;],
+})
+export class OrdonnanceComponent {
+  ordonnance : Ordonnance;
+  prescription: Prescription &#x3D; { dose: &#x27;&#x27;, duree: &#x27;&#x27;, medicament: &#x27;&#x27; };
+
+  showModal: boolean &#x3D; false;
+  modalMessage: string &#x3D; &#x27;&#x27;;
+
+  constructor(private consultationService: ConsultationService, private router: Router) {
+    this.ordonnance &#x3D; this.consultationService.getConsultation().ordonnance;
+  }
+
+  addPrescription(): void {
+    if (this.prescription.medicament &amp;&amp; this.prescription.dose &amp;&amp; this.prescription.duree) {
+      this.ordonnance.prescription.push({ ...this.prescription });
+      this.prescription &#x3D; { dose: &#x27;&#x27;, duree: &#x27;&#x27;, medicament: &#x27;&#x27; };
+
+    } else {
+      this.modalMessage &#x3D; &#x27;Veuillez remplir tous les champs avant d’ajouter.&#x27;;
+      this.showModal &#x3D; true;
+    }
+  }
+
+  confirm(): void {
+    if (this.ordonnance.prescription.length &#x3D;&#x3D;&#x3D; 0) {
+      this.modalMessage &#x3D; &#x27;Vous devez ajouter au moins une prescription avant de confirmer l’ordonnance.&#x27;;
+      this.showModal &#x3D; true;
+    } else {
+    // Enregistrer l&#x27;ordonnance si au moins une prescription existe
+    this.consultationService.updateConsultation(&#x27;ordonnance&#x27;, this.ordonnance);
+    this.modalMessage &#x3D; &#x27;Ordonnance enregistrée avec succès.&#x27;;
+    this.showModal &#x3D; true;
+    this.router.navigate([&#x27;/creation-consult&#x27;]);
+    }
+  }
+
+  cancel(): void {
+    this.router.navigate([&#x27;/creation-consult&#x27;]);
+  }
+
+  closeModal() {
+    this.showModal &#x3D; false;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;app-header&gt;&lt;/app-header&gt;
+&lt;div class&#x3D;&quot;ordonnance-container&quot;&gt;
+  &lt;h1&gt;Ordonnance&lt;/h1&gt;
+
+  &lt;div class&#x3D;&quot;input-fields&quot;&gt;
+    &lt;input
+      type&#x3D;&quot;text&quot;
+      placeholder&#x3D;&quot;Nom&quot;
+      [(ngModel)]&#x3D;&quot;prescription.medicament&quot;
+      class&#x3D;&quot;input-field&quot;
+    /&gt;
+    &lt;input
+      type&#x3D;&quot;text&quot;
+      placeholder&#x3D;&quot;Dose&quot;
+      [(ngModel)]&#x3D;&quot;prescription.dose&quot;
+      class&#x3D;&quot;input-field&quot;
+    /&gt;
+    &lt;input
+      type&#x3D;&quot;text&quot;
+      placeholder&#x3D;&quot;Durée&quot;
+      [(ngModel)]&#x3D;&quot;prescription.duree&quot;
+      class&#x3D;&quot;input-field&quot;
+    /&gt;
+  &lt;/div&gt;
+
+  &lt;div class&#x3D;&quot;prescription-table&quot;&gt;
+    &lt;table&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th&gt;Nom&lt;/th&gt;
+          &lt;th&gt;Dose&lt;/th&gt;
+          &lt;th&gt;Durée&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr *ngIf&#x3D;&quot;ordonnance.prescription.length &#x3D;&#x3D;&#x3D; 0&quot;&gt;
+          &lt;td colspan&#x3D;&quot;3&quot;&gt;Aucune prescription ajoutée&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr *ngFor&#x3D;&quot;let prescription of ordonnance.prescription&quot;&gt;
+          &lt;td&gt;{{ prescription.medicament }}&lt;/td&gt;
+          &lt;td&gt;{{ prescription.dose }}&lt;/td&gt;
+          &lt;td&gt;{{ prescription.duree }}&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;      
+    &lt;/table&gt;
+  &lt;/div&gt;
+
+  &lt;div class&#x3D;&quot;image-buttons-container&quot;&gt;
+    &lt;div class&#x3D;&quot;image-container&quot;&gt;
+      &lt;img src&#x3D;&quot;assets/ordonnance.png&quot; alt&#x3D;&quot;Illustration&quot; class&#x3D;&quot;image&quot; /&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;action-buttons&quot;&gt;
+      &lt;div&gt;
+        &lt;button class&#x3D;&quot;btn btn-add&quot; (click)&#x3D;&quot;addPrescription()&quot;&gt;+ Ajouter le Médicament&lt;/button&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;btn-row&quot;&gt;
+        &lt;button class&#x3D;&quot;btn btn-cancel&quot; (click)&#x3D;&quot;cancel()&quot;&gt;Annuler&lt;/button&gt;
+        &lt;button class&#x3D;&quot;btn btn-confirm&quot; (click)&#x3D;&quot;confirm()&quot;&gt;Confirmer&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;        
+  &lt;/div&gt;
+
+  &lt;!-- Modale --&gt;
+  &lt;div class&#x3D;&quot;modal&quot; *ngIf&#x3D;&quot;showModal&quot;&gt;
+    &lt;div class&#x3D;&quot;modal-content&quot;&gt;
+      &lt;p&gt;{{ modalMessage }}&lt;/p&gt;
+      &lt;button (click)&#x3D;&quot;closeModal()&quot;&gt;Fermer&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./ordonnance.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.ordonnance-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  width : 80%;
+  margin : auto;
+}
+
+h1 {
+  font-size: 1.2rem;
+    font-weight: bold;
+    color: #000;
+    font-family: &#x27;Montserrat&#x27;, sans-serif;
+    text-align: center;
+    padding: 10px 20px;
+    border: 3px solid #25a294;
+    border-radius: 5px;
+    display: inline-block;
+    width : 100%;
+}
+
+.input-fields {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 10px;
+  width : 100%;
+}
+
+.input-field {
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #3BD6CC;
+  border-radius: 5px;
+  width: 33%;
+  font-family: Nunito, sans-serif;
+}
+
+.prescription-table {
+  width: 100%;
+  overflow-x: auto;
+  font-family: Nunito, sans-serif;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+thead {
+  background-color: #00695c;
+  color: white;
+}
+
+.image-buttons-container {
+  display: flex;
+  justify-content: space-between; /* L&#x27;image à gauche et les boutons à droite */
+  align-items: center; /* Centre verticalement */
+  width: 100%;
+}
+
+@media (max-width : 700px) {
+  .image-buttons-container {
+    flex-direction: column;
+  }
+}
+
+.image-container {
+  flex: 0 0 auto; /* Garde l&#x27;image dans une taille fixe */
+}
+
+.action-buttons {
+  display: flex;
+  flex-direction: column; /* Organisation verticale */
+  align-items: center; /* Aligne tout à droite */
+  gap: 20px; /* Espacement entre les groupes de boutons */
+}
+
+.action-buttons .btn-row {
+  display: flex; /* Les boutons &quot;Annuler&quot; et &quot;Confirmer&quot; sur la même ligne */
+  flex-direction: row;
+  gap: 10px; /* Espacement horizontal entre les boutons */
+  justify-content: flex-end; /* Aligne les boutons à droite */
+  width: 100%; /* Assure que la ligne prend la largeur du conteneur parent */
+}
+
+.action-buttons div {
+  display: flex;
+  flex-direction: column; /* Aligne les boutons à la verticale */
+  gap: 10px; /* Espacement entre les boutons dans chaque groupe */
+}
+
+
+
+.btn {
+    font-family: &#x27;Montserrat&#x27;, sans-serif;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    padding: 12px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+
+.btn-add {
+  background-color: #242855;
+  color: white;
+    border: solid 1px white;
+    border-radius: 5px;
+    width: 100% ;
+}
+
+.btn-cancel {
+  background-color: black;
+    color: white;
+    border: solid 1px black;
+    border-radius: 5px;
+    width: 50%;
+}
+
+.btn-confirm {
+  background-color: #4ed6c4;
+    color: white;
+    border: solid 1px #4ed6c4;
+    border-radius: 5px;
+    width: 50%;
+}
+
+.btn-add:hover {
+  background-color: white;
+  color: #242855;
+  border: solid 1px #242855;
+}
+
+.btn-cancel:hover {
+  background-color: white;
+  color: black;
+  border: solid 1px black;
+}
+
+.btn-confirm:hover {
+  background-color: white;
+  color: #4ed6c4;
+  border: solid 1px #4ed6c4;
+}
+
+.image {
+  width: 100%; /* L&#x27;image occupe toute la largeur du conteneur */
+    height: auto; /* Maintient les proportions */
+    max-width: 250px; /* Limite maximale pour éviter qu&#x27;elle devienne trop grande */
+    object-fit: contain; /* Garde tout visible dans le conteneur */
+}
+
+@media (max-width: 768px) {
+  .input-fields {
+    flex-direction: column;
+  }
+
+  .input-field {
+    width: 100%;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
+
+
+/* Modale */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.modal-content p {
+  font-size: 16px;
+  font-family: Nunito, sans-serif;
+  margin-bottom: 20px;
+}
+
+.modal-content button {
+  background-color: black;
+  color: white;
+  border: solid 1px black;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-family: Montserrat, sans-serif;
+  font-weight: 700;
+}
+
+.modal-content button:hover {
+  background-color: white;
+  color: black;
+  border: solid 1px black;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><app-header></app-header><div class="ordonnance-container">  <h1>Ordonnance</h1>  <div class="input-fields">    <input      type="text"      placeholder="Nom"      [(ngModel)]="prescription.medicament"      class="input-field"    />    <input      type="text"      placeholder="Dose"      [(ngModel)]="prescription.dose"      class="input-field"    />    <input      type="text"      placeholder="Durée"      [(ngModel)]="prescription.duree"      class="input-field"    />  </div>  <div class="prescription-table">    <table>      <thead>        <tr>          <th>Nom</th>          <th>Dose</th>          <th>Durée</th>        </tr>      </thead>      <tbody>        <tr *ngIf="ordonnance.prescription.length === 0">          <td colspan="3">Aucune prescription ajoutée</td>        </tr>        <tr *ngFor="let prescription of ordonnance.prescription">          <td>{{ prescription.medicament }}</td>          <td>{{ prescription.dose }}</td>          <td>{{ prescription.duree }}</td>        </tr>      </tbody>          </table>  </div>  <div class="image-buttons-container">    <div class="image-container">      <img src="assets/ordonnance.png" alt="Illustration" class="image" />    </div>    <div class="action-buttons">      <div>        <button class="btn btn-add" (click)="addPrescription()">+ Ajouter le Médicament</button>      </div>      <div class="btn-row">        <button class="btn btn-cancel" (click)="cancel()">Annuler</button>        <button class="btn btn-confirm" (click)="confirm()">Confirmer</button>      </div>    </div>          </div>  <!-- Modale -->  <div class="modal" *ngIf="showModal">    <div class="modal-content">      <p>{{ modalMessage }}</p>      <button (click)="closeModal()">Fermer</button>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BilanBiologiqueComponent', 'selector': 'app-bilan-biologique'},{'name': 'BilanBiologiqueComponent', 'selector': 'app-bilan-biologique'},{'name': 'BilanRadiologiqueComponent', 'selector': 'app-bilan-radiologique'},{'name': 'BilanRadiologiqueComponent', 'selector': 'app-bilan-radiologique'},{'name': 'ConsultationHomeComponent', 'selector': 'app-consultation-home'},{'name': 'ConsulterDpiComponent', 'selector': 'app-consulter-dpi'},{'name': 'CreationDPIComponent', 'selector': 'app-creation-dpi'},{'name': 'FenetreRadiologueComponent', 'selector': 'app-fenetre-radiologue'},{'name': 'GenererGraphe', 'selector': 'dialog-generer-graphe'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LandingPageComponent', 'selector': 'app-landing-page'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MainHeaderComponent', 'selector': 'app-main-header'},{'name': 'OrdonnanceComponent', 'selector': 'app-ordonnance'},{'name': 'OrdonnanceComponent', 'selector': 'app-ordonnance'},{'name': 'PageInfirmierComponent', 'selector': 'app-page-infirmier'},{'name': 'PageLaborantinComponent', 'selector': 'app-page-laborantin'},{'name': 'PageRadiologueComponent', 'selector': 'app-page-radiologue'},{'name': 'PatientSelectionComponent', 'selector': 'app-patient-selection'},{'name': 'RecherchePatientComponent', 'selector': 'app-recherche-patient'},{'name': 'RemplirResultat', 'selector': 'dialog-remplir-resultat'},{'name': 'ResumeComponent', 'selector': 'app-resume'},{'name': 'ResumeComponent', 'selector': 'app-resume'},{'name': 'SoinFormComponent', 'selector': 'app-soin-form'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'OrdonnanceComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'OrdonnanceComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

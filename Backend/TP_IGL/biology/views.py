@@ -64,6 +64,7 @@ class StaticTableHelper:
 
 
 """ test  {
+>>>>>>> ea38466d4b84382f96b1c083a700f64a2ec7dc83
   "bilan_id": 1,
   "laborantin_id": 1,
   "mesure": [
@@ -283,7 +284,10 @@ class Generergraph(APIView):
                 )
 
         except Exception as e:
+
+
             return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
+
 
 
 class GetBilanBiologiquesByDPI(APIView):
@@ -322,6 +326,7 @@ class GetBilanBiologiquesByDPI(APIView):
         except Exception as e:
             return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
 
+''' id_bilan , id_laboratain , tableau mesure  ''' 
 
 class GetBilanBiologiqueByConsultation(APIView):
     def get(self, request, consultation_id):

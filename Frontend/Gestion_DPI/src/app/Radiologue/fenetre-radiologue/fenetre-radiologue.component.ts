@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatDialogContent , MatDialogActions, MatDialogClose , MatDialogTitle, MatDialogContainer  } from '@angular/material/dialog';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { PageRadiologueService } from '../../services/page-radiologue.service';
 
 @Component({
   selector: 'app-fenetre-radiologue',
@@ -20,6 +21,13 @@ export class FenetreRadiologueComponent {
   
   files: File[] = []; // Liste des fichiers sélectionnés
    compteRendu : string ='';
+   isLoading: boolean = false; // Loading indicator
+   ngOnInit(): void {
+   // const id_bilan = this.data.id_bilan
+    // this.pageRadiologueService.updatebilanrad(id_bilan)
+
+   }
+
   // Gestionnaire pour sélectionner plusieurs fichiers
   onFileSelected(event: Event) {
     const input = event.target as HTMLInputElement;
@@ -55,12 +63,66 @@ export class FenetreRadiologueComponent {
 
   constructor(
     public dialogRef: MatDialogRef<FenetreRadiologueComponent>,
+    private pageRadiologueService : PageRadiologueService,
     @Inject(MAT_DIALOG_DATA) public data: any // Reçoit les données envoyées par le parent
   ) {}
 
   // Fonction pour envoyer la valeur fixe au parent
   enregistrer() {
-    this.dialogRef.close(this.valeurEnvoyee); // Envoie "oui" au parent
+    this.isLoading = true; // Active l'indicateur de chargement
+    let completedRequests = 0; // Compteur pour suivre les requêtes terminées
+    let hasError = false; // Pour suivre les erreurs
+  
+    // Parcourt chaque fichier et effectue une requête PUT individuelle
+    this.files.forEach((file, index) => {
+      const formData = new FormData();
+      formData.append('compte_rendu', this.compteRendu); // Compte rendu envoyé avec chaque image
+      formData.append('image', file); // Ajoute l'image actuelle
+  
+      // Appelle la méthode updatebilanrad pour chaque fichier
+      this.pageRadiologueService
+        .updatebilanrad(this.data.element.id_bilanradiologique, formData)
+        .subscribe(
+          (response) => {
+            completedRequests++; // Incrémente le compteur en cas de succès
+  
+            // Vérifie si toutes les requêtes ont été traitées
+            if (completedRequests === this.files.length && !hasError) {
+              this.dialogRef.close(this.valeurEnvoyee); // Ferme la boîte de dialogue
+            }
+          },
+          (error) => {
+            hasError = true; // Indique une erreur
+            console.error(error);
+          },
+          () => {
+            // Désactive l'indicateur de chargement après la dernière requête
+            if (completedRequests === this.files.length) {
+              this.isLoading = false;
+            }
+          }
+        );
+    });
+  
+    // Si aucun fichier n'est sélectionné, envoie uniquement le compte rendu
+    if (this.files.length === 0) {
+      const formData = new FormData();
+      formData.append('compte_rendu', this.compteRendu); // Envoie uniquement le compte rendu
+  
+      this.pageRadiologueService
+        .updatebilanrad(this.data.element.id_bilanradiologique, formData)
+        .subscribe(
+          (response) => {
+            this.dialogRef.close(this.valeurEnvoyee); // Ferme la boîte de dialogue
+          },
+          (error) => {
+            console.error(error);
+          }
+        )
+        .add(() => (this.isLoading = false)); // Désactive l'indicateur de chargement
+    }
   }
-}
+  
+  }
+
   

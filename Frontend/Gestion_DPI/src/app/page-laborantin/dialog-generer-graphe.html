@@ -1,14 +1,14 @@
 <head>
-    <link rel="stylesheet" href="./page-laborantin.component.css">
-  </head>
-  <div class="header-dialog">
-    <h2 mat-dialog-title >Graphiques de Tendance</h2>
-    <mat-dialog-actions class="close-icon">
-      <button mat-button (click)="onNoClick()"><img src="../../assets/images/close.svg" alt="close-icon"></button>
-    </mat-dialog-actions>
+  <link rel="stylesheet" href="./page-laborantin.component.css">
+</head>
+<div class="header-dialog">
+  <h2 mat-dialog-title >Graphiques de Tendance</h2>
+  <mat-dialog-actions class="close-icon">
+    <button mat-button (click)="onNoClick()"><img src="../../assets/images/close.svg" alt="close-icon"></button>
+  </mat-dialog-actions>
+</div>
+<mat-dialog-content class="dialog-content">
+  <div>
+    <canvas id="barChart"></canvas>
   </div>
-  <mat-dialog-content class="dialog-content">
-    <div>
-      <canvas id="barChart"></canvas>
-    </div>
-  </mat-dialog-content>
+</mat-dialog-content>

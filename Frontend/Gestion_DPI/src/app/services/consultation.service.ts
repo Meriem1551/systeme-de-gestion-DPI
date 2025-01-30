@@ -6,7 +6,7 @@ import { Consultation } from '../models/consultation.model';
 })
 export class ConsultationService {
   private consultation: Consultation = {
-    nss: '2222222', // constant for now, needed from amira
+    nss: '',
     resume: {
       diagnostic: '',
       symptomes: '',
@@ -32,4 +32,27 @@ export class ConsultationService {
   updateConsultation<T extends keyof Consultation>(key: T, value: Consultation[T]): void {
     this.consultation[key] = value;
   }
+
+  resetConsultation(): void {
+    this.consultation = {
+      nss: '',
+      resume: {
+        diagnostic: '',
+        symptomes: '',
+        antecedents: '',
+        autres_informations: '',
+      },
+      ordonnance: {
+        prescription: [],
+      },
+      bilan_biologique: {
+        description: '',
+      },
+      bilan_radiologue: {
+        description: '',
+        type: '',
+      },
+    };
+  }
+  
 }

@@ -7,7 +7,7 @@
 
     cursor: pointer;
   }
-.container{
+.containerRes{
   text-align: center;
     display: flex;
     flex-direction: column;
@@ -17,11 +17,12 @@
     gap: 1.5rem;
     margin-top: -8%;
 }
-.container h2 {
+.containerRes h2 {
   font-family: 'Nunito', sans-serif;
   color: #242855;
   font-size: 2rem;
-  margin: 0; /* Supprime les marges supplémentaires */
+  margin: 0; 
+  text-align: center;
 }
 
 .paragraphs{

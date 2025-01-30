@@ -52,6 +52,5 @@ class DPISerializer(serializers.ModelSerializer):
         # Safely handle cases where patient or utilisateur is None
         if obj.patient and obj.patient.utilisateur:
             return UserSerializer(obj.patient.utilisateur).data
+
         return None
-
-

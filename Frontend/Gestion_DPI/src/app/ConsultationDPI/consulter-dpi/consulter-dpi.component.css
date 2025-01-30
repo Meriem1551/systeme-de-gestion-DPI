@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
 
-
-
 .container{
   border: #218879 solid 0.2rem; 
   border-radius: 1rem;
@@ -40,15 +38,7 @@
   margin-left: 4%;
   justify-content: center; /* Center items on smaller screens */
 }
-/*
-.img {
-  width: 15%; 
-  height: 9rem; 
-  margin: 0 auto;
-  margin-top: 7%;
-  background-color: #fff;
-}
-*/
+
 .info {
   display: flex;
   flex-direction: column;
@@ -125,28 +115,7 @@
     color: white;
  }
 }
-/*
-.antecedentpage {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 5%;
-}
 
-.antecedentpage h2 {
-  font-family: 'Nunito', sans-serif;
-  color: #218879;
-}
-
-.antecedentpage div {
-  border: #218879 solid 0.2rem;
-  border-radius: 2rem;
-  width: 80%;
-  height: 50%;
-}
-*/
 .tabConsult,.tabConsult2 {
   text-align: center;
   display: flex;
@@ -170,7 +139,7 @@
   font-size: 3rem;
 }
 
-/*.mat-elevation-z8 ng-container {}*/
+
 .tab{
     width: 100%; /* Ensure the table spans the container */
     border-spacing: 0; /* No extra spacing between cells */
@@ -222,27 +191,42 @@ td, th {
 }
 .imgcolore:hover{
    fill: #218879;
-   /*background-color:#C1FFFB33 ;
-
-   filter: brightness(0) saturate(100%) invert(90%) sepia(20%) saturate(500%) hue-rotate(190deg) ;*/
    filter: brightness(0) saturate(100%) invert(50%) sepia(30%) saturate(300%) hue-rotate(140deg);
 }
 .imggris{
     position: relative;
     left: 1%;
 }
-/*.custom-dialog .mat-dialog-container {   background-color: rgba(33, 136, 121, 0.05); }/* Remplacez par la couleur de votre choix */ 
+.ajoutercnsult{
 
+  position: relative;
+  text-align: right;
+  margin-right: 3%;
+}
+.ajoutercnsult button{
+  background-color: #242855;
+  color: white;
+  border-radius: 1.5rem;
+  padding: 1% 1%;
+  width: 20%;
+  border: 0.01rem solid #242855;
+  outline: none;
+  cursor: pointer;
+  font-family: Montserrat, sans-serif;
+  font-size: 1em;
+  font-weight: 700;
+}
+.ajoutercnsult button:hover{
+  background-color: white;
+  color: #242855;
+  border: 0.01rem solid #242855;
+}
 .custom-dialog{
   border-radius: 20px;
   background-color: white;
   z-index: 0;
 }
-/*.imgsoins{
-  position: relative ;
-  margin-left: 50%;
-  margin-bottom: 5%;
-}*/
+
 .imgsoins {
   display: flex;
   justify-content: flex-end; /* Aligne l'image à droite */
@@ -271,7 +255,7 @@ td, th {
 }
 .tabsoins th,
 .tabsoins td {
- /* Ajoute une bordure autour des cellules */
+ 
   padding: 0.5%; /* Ajoute de l'espace à l'intérieur des cellules */
   text-align: center; /* Aligne le texte à gauche */
   font-family: 'Nunito', sans-serif;
@@ -283,7 +267,7 @@ td, th {
 }
 
 .tabsoins td {
-  /*border: 1px solid #ddd;*/
+ 
   border: 1px solid #3BD6CC;
 }
 .imgConsult{

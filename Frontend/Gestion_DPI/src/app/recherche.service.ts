@@ -26,4 +26,6 @@ export class RechercheService {
 
     return this.http.post(this.scanApiUrl, formData);
   }
+
 }
+

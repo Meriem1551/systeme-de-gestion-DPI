@@ -13,22 +13,27 @@ export class LoginService {
 
 login(email: string, password:string):Observable<any>{
     return this.http.post(this.apiUrl, {email,password});
+
 }
 
 handleLoginSuccess(response: any): void {
-    const { role, id, full_name, access_token, refresh_token } = response;
 
-    // Store tokens if needed
-    localStorage.setItem('fullname', full_name);
-    localStorage.setItem('id', id.toString());
-    localStorage.setItem('access_token', access_token);
-    localStorage.setItem('refresh_token', refresh_token);
+     const { role, id, full_name, access_token, refresh_token } = response;
+
+  // Store tokens in localStorage
+  localStorage.setItem('fullname', full_name);
+  localStorage.setItem('id', id.toString());
+  localStorage.setItem('access_token', access_token);
+  localStorage.setItem('refresh_token', refresh_token);
+  localStorage.setItem('role', role);
+
+    console.log('Navigating based on role:', role);
 
     // Navigate based on the user's role
     if (role === 'admin') {
-      this.router.navigate(['/creation-dpi']);
+      this.router.navigateByUrl('/creation-dpi');
     }if (role === 'patient') {
-      this.router.navigate(['/consulter-dpi', id]);
+      this.router.navigate(['/consulter-dpi', id,role], { queryParams: { role: role } });
     }else if (role === 'medecin') {
       this.router.navigate(['/recherche-patient']);
     } else if (role === 'infirmier') {
@@ -39,7 +44,7 @@ handleLoginSuccess(response: any): void {
     }else if (role === 'laborantin'){
       this.router.navigate(['/page-laborantin']);
     } else if (role === 'radiologue'){
-      this.router.navigate(['']);
+      this.router.navigate(['/page-radiologue']);
     }
   }
 }

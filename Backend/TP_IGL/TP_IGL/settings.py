@@ -27,10 +27,7 @@ SECRET_KEY = "django-insecure-!-4nj^&wxu%y+gvg#*j)t%svc-pj#rf(78xkvfg7ne4gz6mqg6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-
-CORS_ALLOW_CREDENTIALS = True
-
-ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
+ALLOWED_HOSTS = []
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_METHODS = [
     "GET",
@@ -41,7 +38,7 @@ CORS_ALLOW_METHODS = [
     "OPTIONS",  # Ajoutez OPTIONS à la liste des méthodes autorisées
 ]
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:4200",
+    "http://localhost:8000",
 ]
 # Application definition
 
@@ -65,6 +62,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'rest_framework_swagger',
 
+
 ]
 
 
@@ -83,15 +81,18 @@ ROOT_URLCONF = "TP_IGL.urls"
 
 TEMPLATES = [
     {
-        "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR / "templates"],
-        "APP_DIRS": True,
-        "OPTIONS": {
-            "context_processors": [
-                "django.template.context_processors.debug",
-                "django.template.context_processors.request",
-                "django.contrib.auth.context_processors.auth",
-                "django.contrib.messages.context_processors.messages",
+
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [BASE_DIR / 'templates']
+        ,
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+
             ],
         },
     },
@@ -110,7 +111,6 @@ WSGI_APPLICATION = "TP_IGL.wsgi.application"
     }
 }
 
-"""
 
 DATABASES = {
     'default': {
@@ -120,20 +120,42 @@ DATABASES = {
         'PASSWORD': '30 may 05 30 may 05',
         'HOST': 'localhost',
         'PORT': '3306',
-    }
-}
+=======  
+        "NAME": "mydjango_db",
+        "USER": "root",
+        "PASSWORD": "mysql2024",
+"""
+DATABASES = {
 
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        'NAME': 'battabase',
+        'USER': 'root',
+        'PASSWORD': 'batta2004',
+        "HOST": "localhost",
+        "PORT": "3306",
+
+    }
+
+}
+'''
 DATABASES['default']['TEST'] = {
     'NAME': 'test_igl_db',
 }
+'''
 
-REST_FRAMEWORK = {
-    "NON_FIELD_ERRORS_KEY": "error",
-    "DEFAULT_AUTHENTICATION_CLASSES": (
-        "rest_framework.authentication.SessionAuthentication",
-        "rest_framework_simplejwt.authentication.JWTAuthentication",
-    ),
+REST_FRAMEWORK={
+    'NON_FIELD_ERRORS_KEY':'error',
+        'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
 }
+
+    #'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+
+
+
 
 # SPECTACULAR_SETTINGS = {
 #     'TITLE': 'GesdtionDPI',  # The title of API

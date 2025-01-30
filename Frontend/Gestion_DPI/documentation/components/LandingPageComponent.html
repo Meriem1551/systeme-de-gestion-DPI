@@ -1,0 +1,403 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>gestion-dpi documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">gestion-dpi documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  LandingPageComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/landing-page/landing-page.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-landing-page</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                                <code><a href="../components/MainHeaderComponent.html" target="_self" >MainHeaderComponent</a></code>
+                            <code>MatCardModule</code>
+                            <code>RouterLink</code>
+                            <code>RouterLinkActive</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./landing-page.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./landing-page.component.css</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+import { Router, RouterLink, RouterLinkActive } from &#x27;@angular/router&#x27;;
+import { MainHeaderComponent } from &#x27;../main-header/main-header.component&#x27;;
+import {ChangeDetectionStrategy} from &#x27;@angular/core&#x27;;
+import {MatCardModule} from &#x27;@angular/material/card&#x27;;
+@Component({
+  selector: &#x27;app-landing-page&#x27;,
+  imports: [MainHeaderComponent, MatCardModule, RouterLink, RouterLinkActive],
+  templateUrl: &#x27;./landing-page.component.html&#x27;,
+  styleUrl: &#x27;./landing-page.component.css&#x27;,
+  standalone:true
+})
+export class LandingPageComponent {
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;app-main-header&gt;&lt;/app-main-header&gt;
+&lt;section id&#x3D;&quot;accueil&quot;&gt;
+    &lt;div class&#x3D;&quot;text&quot;&gt;
+        &lt;h1&gt;Simplifiez la gestion des dossiers médicaux avec notre solution numérique intuitive.&lt;/h1&gt;
+        &lt;h2&gt;Centralisez les données des patients, améliorez la communication entre professionnels de santé et assurez une continuité optimale des soins&lt;/h2&gt;
+        &lt;a routerLink&#x3D;&quot;/login&quot; routerLinkActive&#x3D;&quot;active&quot; ariaCurrentWhenActive&#x3D;&quot;page&quot;&gt;Connexion&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;img src&#x3D;&quot;../../assets/images/undraw_medicine_hqqg.svg&quot; alt&#x3D;&quot;deux medecins&quot;&gt;
+&lt;/section&gt;
+
+&lt;section id&#x3D;&quot;fonctions&quot;&gt;
+    &lt;h2&gt;Nos services&lt;/h2&gt;
+    &lt;div&gt;
+        &lt;mat-card appearance&#x3D;&quot;outlined&quot;&gt;
+            &lt;mat-card-content&gt;
+                &lt;img mat-card-image src&#x3D;&quot;../../assets/images/Dpi-manager.svg&quot; alt&#x3D;&quot;dossier-patient&quot;&gt;
+                &lt;h4&gt;Gestion des dossiers patients&lt;/h4&gt;
+                &lt;p&gt;Créez et accédez rapidement aux informations des patients.&lt;/p&gt;
+            &lt;/mat-card-content&gt;
+        &lt;/mat-card&gt;
+        &lt;mat-card appearance&#x3D;&quot;outlined&quot;&gt;
+            &lt;mat-card-content&gt;
+                &lt;img src&#x3D;&quot;../../assets/images/Online-doctor.svg&quot; alt&#x3D;&quot;consultation medical&quot;&gt;
+                &lt;h4&gt;Consultation médicale simplifiée&lt;/h4&gt;
+                &lt;p&gt;Ajoutez des diagnostics, prescriptions et résumés en quelques clics.&lt;/p&gt;
+            &lt;/mat-card-content&gt;
+        &lt;/mat-card&gt;
+        &lt;mat-card appearance&#x3D;&quot;outlined&quot;&gt;
+            &lt;mat-card-content&gt;
+                &lt;img mat-card-image src&#x3D;&quot;../../assets/images/Nurse.svg&quot; alt&#x3D;&quot;infirmier&quot;&gt;
+                &lt;h4&gt;Suivi des soins infirmiers&lt;/h4&gt;
+                &lt;p&gt;Enregistrez les traitements et observations en temps réel.&lt;/p&gt;
+            &lt;/mat-card-content&gt;
+        &lt;/mat-card&gt;
+
+        &lt;mat-card appearance&#x3D;&quot;outlined&quot;&gt;
+            &lt;mat-card-content&gt;
+                &lt;img mat-card-image src&#x3D;&quot;../../assets/images/Health-checkup.svg&quot; alt&#x3D;&quot;examens medicales&quot;&gt;
+                &lt;h4&gt;Gestion des examens et résultats&lt;/h4&gt;
+                &lt;p&gt;Téléchargez et visualisez facilement les résultats d&#x27;examens biologiques et radiologiques..&lt;/p&gt;
+            &lt;/mat-card-content&gt;
+        &lt;/mat-card&gt;
+        &lt;mat-card appearance&#x3D;&quot;outlined&quot;&gt;
+            &lt;mat-card-content&gt;
+                &lt;img src&#x3D;&quot;../../assets/images/SGPH.svg&quot; alt&#x3D;&quot;medical consultation&quot;&gt;
+                &lt;h4&gt;Intégration avec le SGPH&lt;/h4&gt;
+                &lt;p&gt;Assurez la traçabilité des traitements grâce à l’interopérabilité.&lt;/p&gt;
+            &lt;/mat-card-content&gt;
+        &lt;/mat-card&gt;
+        &lt;mat-card appearance&#x3D;&quot;outlined&quot;&gt;
+            &lt;mat-card-content&gt;
+                &lt;img mat-card-image src&#x3D;&quot;../../assets/images/Secure-user.svg&quot; alt&#x3D;&quot;medical consultation&quot;&gt;
+                &lt;h4&gt;Espace patient sécurisé&lt;/h4&gt;
+                &lt;p&gt;Permettez aux patients de consulter leurs données en toute sécurité.&lt;/p&gt;
+            &lt;/mat-card-content&gt;
+        &lt;/mat-card&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;section id&#x3D;&quot;contact&quot;&gt;
+    &lt;h2&gt;Contacter nous&lt;/h2&gt;
+    &lt;div class&#x3D;&quot;contacts&quot;&gt;
+        &lt;p&gt;&lt;strong&gt;Email: &lt;/strong&gt;admin&amp;#64;amejay.dz&lt;/p&gt;
+        &lt;p&gt;&lt;strong&gt;Téléphone: &lt;/strong&gt;021 45 22 12&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><app-main-header></app-main-header><section id="accueil">    <div class="text">        <h1>Simplifiez la gestion des dossiers médicaux avec notre solution numérique intuitive.</h1>        <h2>Centralisez les données des patients, améliorez la communication entre professionnels de santé et assurez une continuité optimale des soins</h2>        <a routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">Connexion</a>    </div>    <img src="../../assets/images/undraw_medicine_hqqg.svg" alt="deux medecins"></section><section id="fonctions">    <h2>Nos services</h2>    <div>        <mat-card appearance="outlined">            <mat-card-content>                <img mat-card-image src="../../assets/images/Dpi-manager.svg" alt="dossier-patient">                <h4>Gestion des dossiers patients</h4>                <p>Créez et accédez rapidement aux informations des patients.</p>            </mat-card-content>        </mat-card>        <mat-card appearance="outlined">            <mat-card-content>                <img src="../../assets/images/Online-doctor.svg" alt="consultation medical">                <h4>Consultation médicale simplifiée</h4>                <p>Ajoutez des diagnostics, prescriptions et résumés en quelques clics.</p>            </mat-card-content>        </mat-card>        <mat-card appearance="outlined">            <mat-card-content>                <img mat-card-image src="../../assets/images/Nurse.svg" alt="infirmier">                <h4>Suivi des soins infirmiers</h4>                <p>Enregistrez les traitements et observations en temps réel.</p>            </mat-card-content>        </mat-card>        <mat-card appearance="outlined">            <mat-card-content>                <img mat-card-image src="../../assets/images/Health-checkup.svg" alt="examens medicales">                <h4>Gestion des examens et résultats</h4>                <p>Téléchargez et visualisez facilement les résultats d\'examens biologiques et radiologiques..</p>            </mat-card-content>        </mat-card>        <mat-card appearance="outlined">            <mat-card-content>                <img src="../../assets/images/SGPH.svg" alt="medical consultation">                <h4>Intégration avec le SGPH</h4>                <p>Assurez la traçabilité des traitements grâce à l’interopérabilité.</p>            </mat-card-content>        </mat-card>        <mat-card appearance="outlined">            <mat-card-content>                <img mat-card-image src="../../assets/images/Secure-user.svg" alt="medical consultation">                <h4>Espace patient sécurisé</h4>                <p>Permettez aux patients de consulter leurs données en toute sécurité.</p>            </mat-card-content>        </mat-card>    </div></section><section id="contact">    <h2>Contacter nous</h2>    <div class="contacts">        <p><strong>Email: </strong>admin&#64;amejay.dz</p>        <p><strong>Téléphone: </strong>021 45 22 12</p>    </div></section></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BilanBiologiqueComponent', 'selector': 'app-bilan-biologique'},{'name': 'BilanBiologiqueComponent', 'selector': 'app-bilan-biologique'},{'name': 'BilanRadiologiqueComponent', 'selector': 'app-bilan-radiologique'},{'name': 'BilanRadiologiqueComponent', 'selector': 'app-bilan-radiologique'},{'name': 'ConsultationHomeComponent', 'selector': 'app-consultation-home'},{'name': 'ConsulterDpiComponent', 'selector': 'app-consulter-dpi'},{'name': 'CreationDPIComponent', 'selector': 'app-creation-dpi'},{'name': 'FenetreRadiologueComponent', 'selector': 'app-fenetre-radiologue'},{'name': 'GenererGraphe', 'selector': 'dialog-generer-graphe'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LandingPageComponent', 'selector': 'app-landing-page'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MainHeaderComponent', 'selector': 'app-main-header'},{'name': 'OrdonnanceComponent', 'selector': 'app-ordonnance'},{'name': 'OrdonnanceComponent', 'selector': 'app-ordonnance'},{'name': 'PageInfirmierComponent', 'selector': 'app-page-infirmier'},{'name': 'PageLaborantinComponent', 'selector': 'app-page-laborantin'},{'name': 'PageRadiologueComponent', 'selector': 'app-page-radiologue'},{'name': 'PatientSelectionComponent', 'selector': 'app-patient-selection'},{'name': 'RecherchePatientComponent', 'selector': 'app-recherche-patient'},{'name': 'RemplirResultat', 'selector': 'dialog-remplir-resultat'},{'name': 'ResumeComponent', 'selector': 'app-resume'},{'name': 'ResumeComponent', 'selector': 'app-resume'},{'name': 'SoinFormComponent', 'selector': 'app-soin-form'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'LandingPageComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'LandingPageComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

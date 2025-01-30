@@ -9,6 +9,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { provideRouter } from '@angular/router';
 import { routes } from '../src/app/app.routes';
 import { provideHttpClient } from '@angular/common/http';
+
+
+
 // Modify the bootstrapApplication to include BrowserAnimationsModule
 bootstrapApplication(AppComponent, {
   providers: [
@@ -19,8 +22,8 @@ bootstrapApplication(AppComponent, {
       FormsModule,
       ReactiveFormsModule,
       MatFormFieldModule,
-      MatSelectModule
-    ),
+      MatSelectModule,
+    ),    
   ],
 }).catch((err) => console.error(err));
 

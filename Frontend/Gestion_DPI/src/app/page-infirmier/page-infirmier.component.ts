@@ -62,18 +62,27 @@ export class PageInfirmierComponent {
   }
 
   save(): void {
+    // Check if all soins have both description and observation filled
+    const isValid = this.soins.every(soin => soin.description.trim() !== '' && soin.observation.trim() !== '');
+  
+    if (!isValid) {
+      this.modalMessage = 'Veuillez remplir tous les soins avant d\'enregistrer.';
+      this.showModal = true;
+      return;
+    }
+  
     if (this.soins.length === 0) {
       this.modalMessage = 'Aucun soin à enregistrer.';
       this.showModal = true;
       return;
     }
-
+  
     if (!this.patientSelected) {
       this.modalMessage = 'Veuillez sélectionner un patient avant de sauvegarder.';
       this.showModal = true;
       return;
     }
-
+  
     // Save each soin one by one
     this.soins.forEach((soin, index) => {
       const soinData = {
@@ -82,7 +91,7 @@ export class PageInfirmierComponent {
         description: soin.description,
         observation: soin.observation
       };
-
+  
       this.http.post(this.apiUrl, soinData)
         .pipe(
           catchError(error => {
@@ -95,12 +104,13 @@ export class PageInfirmierComponent {
           console.log(`Soin ${index + 1} enregistré avec succès:`, response);
         });
     });
-
-    this.modalMessage = 'Les soins ont été enregistrés avec succès!',
-    this.showModal = true ; 
+  
+    this.modalMessage = 'Les soins ont été enregistrés avec succès!';
+    this.showModal = true;
     this.patientSelected = null;
     this.soins = [];
   }
+  
 
   closeModal() {
     this.showModal = false;
