@@ -28,7 +28,6 @@ export class ResumeComponent {
     // Vérifie quels champs sont vides
     if (!this.resume.diagnostic.trim()) emptyFields.push('Diagnostic');
     if (!this.resume.symptomes.trim()) emptyFields.push('Symptômes');
-    if (!this.resume.antecedents.trim()) emptyFields.push('Antécédents');
 
     if (emptyFields.length > 0) {
       const fieldMessage =
