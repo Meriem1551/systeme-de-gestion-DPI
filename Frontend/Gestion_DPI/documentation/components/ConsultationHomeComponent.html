@@ -373,8 +373,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="115"
-                                    class="link-to-prism">src/app/consultation-home/consultation-home.component.ts:115</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="125"
+                                    class="link-to-prism">src/app/consultation-home/consultation-home.component.ts:125</a></div>
                         </td>
                     </tr>
 
@@ -410,8 +410,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="99"
-                                    class="link-to-prism">src/app/consultation-home/consultation-home.component.ts:99</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="109"
+                                    class="link-to-prism">src/app/consultation-home/consultation-home.component.ts:109</a></div>
                         </td>
                     </tr>
 
@@ -447,8 +447,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="103"
-                                    class="link-to-prism">src/app/consultation-home/consultation-home.component.ts:103</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="113"
+                                    class="link-to-prism">src/app/consultation-home/consultation-home.component.ts:113</a></div>
                         </td>
                     </tr>
 
@@ -484,8 +484,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="107"
-                                    class="link-to-prism">src/app/consultation-home/consultation-home.component.ts:107</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="117"
+                                    class="link-to-prism">src/app/consultation-home/consultation-home.component.ts:117</a></div>
                         </td>
                     </tr>
 
@@ -521,8 +521,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="111"
-                                    class="link-to-prism">src/app/consultation-home/consultation-home.component.ts:111</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="121"
+                                    class="link-to-prism">src/app/consultation-home/consultation-home.component.ts:121</a></div>
                         </td>
                     </tr>
 
@@ -847,30 +847,40 @@ export class ConsultationHomeComponent implements OnInit {
   // Save handler
   handleSave() {
     if (!this.isResumeValid()) {
-      // Show warning if the résumé is invalid
-      this.showWarning &#x3D; true ;
+      // Afficher l&#x27;avertissement si le résumé est invalide
+      this.showWarning &#x3D; true;
     } else {
-      // Hide the warning and proceed with saving
-    this.showWarning &#x3D; false;
-
-    // Log the consultation object to check the structure
-    const consultation &#x3D; this.consultationService.getConsultation();
-    console.log(&#x27;Consultation to send:&#x27;, consultation);
-    
-    this.consultationApiService.ajouterConsultation(consultation).subscribe({
-      next: () &#x3D;&gt; {
-        this.modalMessage &#x3D; &#x27;Consultation enregistrée avec succès.&#x27;;
-        this.showModal &#x3D; true;
-        this.router.navigate([&#x27;/recherche-patient&#x27;]); // Redirect to the desired page after saving
-      },
-      error: (error) &#x3D;&gt; {
-        console.error(&#x27;Erreur lors de l\&#x27;enregistrement de la consultation :&#x27;, error);
-        this.modalMessage &#x3D; &#x27;Une erreur s\&#x27;est produite. Veuillez réessayer.&#x27;;
-        this.showModal &#x3D; true;
-      },
-    });     
+      // Masquer l&#x27;avertissement et continuer avec l&#x27;enregistrement
+      this.showWarning &#x3D; false;
+  
+      // Obtenir la consultation à partir du service
+      const consultation &#x3D; this.consultationService.getConsultation();
+      console.log(&#x27;Consultation à enregistrer :&#x27;, consultation);
+  
+      // Appel API pour ajouter la consultation
+      this.consultationApiService.ajouterConsultation(consultation).subscribe({
+        next: () &#x3D;&gt; {
+          this.modalMessage &#x3D; &#x27;Consultation enregistrée avec succès.&#x27;;
+          this.showModal &#x3D; true;
+  
+          // Réinitialiser la consultation après l&#x27;enregistrement réussi
+          this.consultationService.resetConsultation();
+  
+          // Mettre à jour l&#x27;objet consultation dans le composant
+          this.consultation &#x3D; this.consultationService.getConsultation();
+  
+          // Redirection après l&#x27;enregistrement
+          this.router.navigate([&#x27;/recherche-patient&#x27;]);
+        },
+        error: (error) &#x3D;&gt; {
+          console.error(&#x27;Erreur lors de l\&#x27;enregistrement de la consultation :&#x27;, error);
+          this.modalMessage &#x3D; &#x27;Une erreur s\&#x27;est produite. Veuillez réessayer.&#x27;;
+          this.showModal &#x3D; true;
+        },
+      });
     }
   }
+  
 
   handleButton1() {
     this.router.navigate([&#x27;/resume&#x27;]);

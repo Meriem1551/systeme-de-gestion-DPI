@@ -1040,28 +1040,24 @@ export class GenererGraphe implements OnInit{
     this.dialogRef.close();
   }
   
-}
-
-
-</code></pre>
+}</code></pre>
     </div>
 
     <div class="tab-pane fade " id="templateData">
         <pre class="line-numbers"><code class="language-html">&lt;head&gt;
-    &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;./page-laborantin.component.css&quot;&gt;
-  &lt;/head&gt;
-  &lt;div class&#x3D;&quot;header-dialog&quot;&gt;
-    &lt;h2 mat-dialog-title &gt;Graphiques de Tendance&lt;/h2&gt;
-    &lt;mat-dialog-actions class&#x3D;&quot;close-icon&quot;&gt;
-      &lt;button mat-button (click)&#x3D;&quot;onNoClick()&quot;&gt;&lt;img src&#x3D;&quot;../../assets/images/close.svg&quot; alt&#x3D;&quot;close-icon&quot;&gt;&lt;/button&gt;
-    &lt;/mat-dialog-actions&gt;
+  &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;./page-laborantin.component.css&quot;&gt;
+&lt;/head&gt;
+&lt;div class&#x3D;&quot;header-dialog&quot;&gt;
+  &lt;h2 mat-dialog-title &gt;Graphiques de Tendance&lt;/h2&gt;
+  &lt;mat-dialog-actions class&#x3D;&quot;close-icon&quot;&gt;
+    &lt;button mat-button (click)&#x3D;&quot;onNoClick()&quot;&gt;&lt;img src&#x3D;&quot;../../assets/images/close.svg&quot; alt&#x3D;&quot;close-icon&quot;&gt;&lt;/button&gt;
+  &lt;/mat-dialog-actions&gt;
+&lt;/div&gt;
+&lt;mat-dialog-content class&#x3D;&quot;dialog-content&quot;&gt;
+  &lt;div&gt;
+    &lt;canvas id&#x3D;&quot;barChart&quot;&gt;&lt;/canvas&gt;
   &lt;/div&gt;
-  &lt;mat-dialog-content class&#x3D;&quot;dialog-content&quot;&gt;
-    &lt;div&gt;
-      &lt;canvas id&#x3D;&quot;barChart&quot;&gt;&lt;/canvas&gt;
-    &lt;/div&gt;
-  &lt;/mat-dialog-content&gt;
-</code></pre>
+&lt;/mat-dialog-content&gt;</code></pre>
     </div>
 
 
@@ -1090,7 +1086,7 @@ export class GenererGraphe implements OnInit{
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><head>    <link rel="stylesheet" href="./page-laborantin.component.css">  </head>  <div class="header-dialog">    <h2 mat-dialog-title >Graphiques de Tendance</h2>    <mat-dialog-actions class="close-icon">      <button mat-button (click)="onNoClick()"><img src="../../assets/images/close.svg" alt="close-icon"></button>    </mat-dialog-actions>  </div>  <mat-dialog-content class="dialog-content">    <div>      <canvas id="barChart"></canvas>    </div>  </mat-dialog-content></div>'
+        var COMPONENT_TEMPLATE = '<div><head>  <link rel="stylesheet" href="./page-laborantin.component.css"></head><div class="header-dialog">  <h2 mat-dialog-title >Graphiques de Tendance</h2>  <mat-dialog-actions class="close-icon">    <button mat-button (click)="onNoClick()"><img src="../../assets/images/close.svg" alt="close-icon"></button>  </mat-dialog-actions></div><mat-dialog-content class="dialog-content">  <div>    <canvas id="barChart"></canvas>  </div></mat-dialog-content></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BilanBiologiqueComponent', 'selector': 'app-bilan-biologique'},{'name': 'BilanBiologiqueComponent', 'selector': 'app-bilan-biologique'},{'name': 'BilanRadiologiqueComponent', 'selector': 'app-bilan-radiologique'},{'name': 'BilanRadiologiqueComponent', 'selector': 'app-bilan-radiologique'},{'name': 'ConsultationHomeComponent', 'selector': 'app-consultation-home'},{'name': 'ConsulterDpiComponent', 'selector': 'app-consulter-dpi'},{'name': 'CreationDPIComponent', 'selector': 'app-creation-dpi'},{'name': 'FenetreRadiologueComponent', 'selector': 'app-fenetre-radiologue'},{'name': 'GenererGraphe', 'selector': 'dialog-generer-graphe'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LandingPageComponent', 'selector': 'app-landing-page'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MainHeaderComponent', 'selector': 'app-main-header'},{'name': 'OrdonnanceComponent', 'selector': 'app-ordonnance'},{'name': 'OrdonnanceComponent', 'selector': 'app-ordonnance'},{'name': 'PageInfirmierComponent', 'selector': 'app-page-infirmier'},{'name': 'PageLaborantinComponent', 'selector': 'app-page-laborantin'},{'name': 'PageRadiologueComponent', 'selector': 'app-page-radiologue'},{'name': 'PatientSelectionComponent', 'selector': 'app-patient-selection'},{'name': 'RecherchePatientComponent', 'selector': 'app-recherche-patient'},{'name': 'RemplirResultat', 'selector': 'dialog-remplir-resultat'},{'name': 'ResumeComponent', 'selector': 'app-resume'},{'name': 'ResumeComponent', 'selector': 'app-resume'},{'name': 'SoinFormComponent', 'selector': 'app-soin-form'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'GenererGraphe'};

@@ -26,7 +26,7 @@ try:
 
     # Remplir les champs du formulaire
     driver.find_element(By.ID, "nom").send_keys("Dahak")
-    driver.find_element(By.ID, "prenom").send_keys("Fouad")
+    driver.find_element(By.ID, "prenom").send_keys("Samir")
     driver.find_element(By.ID, "nss").send_keys("44444444")
     driver.find_element(By.ID, "ddn").send_keys("01-09-1987")
     driver.find_element(By.ID, "adresse").send_keys("1004 logts Example")

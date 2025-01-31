@@ -1201,10 +1201,7 @@ export class GenererGraphe implements OnInit{
     this.dialogRef.close();
   }
   
-}
-
-
-</code></pre>
+}</code></pre>
     </div>
 
     <div class="tab-pane fade " id="templateData">
@@ -1247,10 +1244,9 @@ export class GenererGraphe implements OnInit{
             &lt;tr mat-header-row *matHeaderRowDef&#x3D;&quot;displayedColumns&quot;&gt;&lt;/tr&gt;
             
             &lt;tr mat-row
-              (click)&#x3D;&quot;openDialog_remplirResultat(row)&quot; 
-              [class.demo-row-is-clicked]&#x3D;&quot;clickedRows.has(row)&quot;
-              [ngClass]&#x3D;&quot;{&#x27;frozen-row&#x27;: row.rempli}&quot; 
-              *matRowDef&#x3D;&quot;let row; columns: displayedColumns;&quot;&gt;
+                (click)&#x3D;&quot;openDialog_remplirResultat(row)&quot; 
+                [class.demo-row-is-clicked]&#x3D;&quot;clickedRows.has(row)&quot;
+                *matRowDef&#x3D;&quot;let row; columns: displayedColumns;&quot;&gt;
             &lt;/tr&gt;
         &lt;/table&gt;
     &lt;/div&gt;
@@ -1284,7 +1280,7 @@ export class GenererGraphe implements OnInit{
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><app-header></app-header><div class="laborantin-container">    <h1>Saisie des Résultats de Laboratoire</h1>      <mat-form-field>      <mat-label>Sélectionner un Patient</mat-label>      <mat-select [formControl]="patientControl" (selectionChange)="loadPatientData()" required>        <mat-option *ngFor="let patient of patients; trackBy: trackByPatient" [value]="patient">          {{ patient.nom}} {{patient.prenom}}        </mat-option>      </mat-select>      <mat-error *ngIf="patientControl.hasError(\'required\')">        Sélectionner un Patient s\'il vous plait!      </mat-error>    </mat-form-field>      <div *ngIf="patientSelecione" class="bilan">        <div class="above-table">            <h2>Bilans Biologiques de {{patientSelecione.nom}} {{patientSelecione.prenom}}</h2>        </div>              <!-- The table displaying results -->        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">                      <ng-container matColumnDef="description">              <th mat-header-cell *matHeaderCellDef>Description</th>              <td mat-cell *matCellDef="let element">{{element.description}}</td>            </ng-container>                      <ng-container matColumnDef="resultat">              <th mat-header-cell *matHeaderCellDef>Resultat</th>              <td mat-cell *matCellDef="let element">                <img [src]="element.rempli ? \'../../assets/images/wrong.svg\': \'../../assets/images/right.svg\'" class="check-icon">              </td>            </ng-container>                      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>                        <tr mat-row              (click)="openDialog_remplirResultat(row)"               [class.demo-row-is-clicked]="clickedRows.has(row)"              [ngClass]="{\'frozen-row\': row.rempli}"               *matRowDef="let row; columns: displayedColumns;">            </tr>        </table>    </div></div></div>'
+        var COMPONENT_TEMPLATE = '<div><app-header></app-header><div class="laborantin-container">    <h1>Saisie des Résultats de Laboratoire</h1>      <mat-form-field>      <mat-label>Sélectionner un Patient</mat-label>      <mat-select [formControl]="patientControl" (selectionChange)="loadPatientData()" required>        <mat-option *ngFor="let patient of patients; trackBy: trackByPatient" [value]="patient">          {{ patient.nom}} {{patient.prenom}}        </mat-option>      </mat-select>      <mat-error *ngIf="patientControl.hasError(\'required\')">        Sélectionner un Patient s\'il vous plait!      </mat-error>    </mat-form-field>      <div *ngIf="patientSelecione" class="bilan">        <div class="above-table">            <h2>Bilans Biologiques de {{patientSelecione.nom}} {{patientSelecione.prenom}}</h2>        </div>              <!-- The table displaying results -->        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">                      <ng-container matColumnDef="description">              <th mat-header-cell *matHeaderCellDef>Description</th>              <td mat-cell *matCellDef="let element">{{element.description}}</td>            </ng-container>                      <ng-container matColumnDef="resultat">              <th mat-header-cell *matHeaderCellDef>Resultat</th>              <td mat-cell *matCellDef="let element">                <img [src]="element.rempli ? \'../../assets/images/wrong.svg\': \'../../assets/images/right.svg\'" class="check-icon">              </td>            </ng-container>                      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>                        <tr mat-row                (click)="openDialog_remplirResultat(row)"                 [class.demo-row-is-clicked]="clickedRows.has(row)"                *matRowDef="let row; columns: displayedColumns;">            </tr>        </table>    </div></div></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BilanBiologiqueComponent', 'selector': 'app-bilan-biologique'},{'name': 'BilanBiologiqueComponent', 'selector': 'app-bilan-biologique'},{'name': 'BilanRadiologiqueComponent', 'selector': 'app-bilan-radiologique'},{'name': 'BilanRadiologiqueComponent', 'selector': 'app-bilan-radiologique'},{'name': 'ConsultationHomeComponent', 'selector': 'app-consultation-home'},{'name': 'ConsulterDpiComponent', 'selector': 'app-consulter-dpi'},{'name': 'CreationDPIComponent', 'selector': 'app-creation-dpi'},{'name': 'FenetreRadiologueComponent', 'selector': 'app-fenetre-radiologue'},{'name': 'GenererGraphe', 'selector': 'dialog-generer-graphe'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LandingPageComponent', 'selector': 'app-landing-page'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MainHeaderComponent', 'selector': 'app-main-header'},{'name': 'OrdonnanceComponent', 'selector': 'app-ordonnance'},{'name': 'OrdonnanceComponent', 'selector': 'app-ordonnance'},{'name': 'PageInfirmierComponent', 'selector': 'app-page-infirmier'},{'name': 'PageLaborantinComponent', 'selector': 'app-page-laborantin'},{'name': 'PageRadiologueComponent', 'selector': 'app-page-radiologue'},{'name': 'PatientSelectionComponent', 'selector': 'app-patient-selection'},{'name': 'RecherchePatientComponent', 'selector': 'app-recherche-patient'},{'name': 'RemplirResultat', 'selector': 'dialog-remplir-resultat'},{'name': 'ResumeComponent', 'selector': 'app-resume'},{'name': 'ResumeComponent', 'selector': 'app-resume'},{'name': 'SoinFormComponent', 'selector': 'app-soin-form'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'PageLaborantinComponent'};

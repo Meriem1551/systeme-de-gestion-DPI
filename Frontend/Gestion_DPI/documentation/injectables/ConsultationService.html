@@ -154,6 +154,9 @@
                                 <a href="#getConsultation" >getConsultation</a>
                             </li>
                             <li>
+                                <a href="#resetConsultation" >resetConsultation</a>
+                            </li>
+                            <li>
                                 <a href="#updateConsultation" >updateConsultation</a>
                             </li>
                         </ul>
@@ -205,6 +208,43 @@
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="../interfaces/Consultation.html" target="_self" >Consultation</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resetConsultation"></a>
+                    <span class="name">
+                        <span ><b>resetConsultation</b></span>
+                        <a href="#resetConsultation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>resetConsultation()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="36"
+                                    class="link-to-prism">src/app/services/consultation.service.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                         </div>
                 </td>
@@ -394,6 +434,29 @@ export class ConsultationService {
   updateConsultation&lt;T extends keyof Consultation&gt;(key: T, value: Consultation[T]): void {
     this.consultation[key] &#x3D; value;
   }
+
+  resetConsultation(): void {
+    this.consultation &#x3D; {
+      nss: &#x27;&#x27;,
+      resume: {
+        diagnostic: &#x27;&#x27;,
+        symptomes: &#x27;&#x27;,
+        antecedents: &#x27;&#x27;,
+        autres_informations: &#x27;&#x27;,
+      },
+      ordonnance: {
+        prescription: [],
+      },
+      bilan_biologique: {
+        description: &#x27;&#x27;,
+      },
+      bilan_radiologue: {
+        description: &#x27;&#x27;,
+        type: &#x27;&#x27;,
+      },
+    };
+  }
+  
 }
 </code></pre>
     </div>

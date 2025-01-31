@@ -176,7 +176,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/creation-dpi.service.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/creation-dpi.service.ts:8</a></div>
                             </td>
                         </tr>
 
@@ -239,8 +239,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="13"
-                                    class="link-to-prism">src/app/creation-dpi.service.ts:13</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="12"
+                                    class="link-to-prism">src/app/creation-dpi.service.ts:12</a></div>
                         </td>
                     </tr>
 
@@ -317,7 +317,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/creation-dpi.service.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/creation-dpi.service.ts:8</a></div>
                         </td>
                     </tr>
 
@@ -333,7 +333,6 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
 import { HttpClient, HttpHeaders } from &#x27;@angular/common/http&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
-
 @Injectable({
   providedIn: &#x27;root&#x27;
 })
@@ -342,11 +341,12 @@ export class CreationDPIService {
 
   constructor(private http: HttpClient) { }
 
-  createDPI(dpiData: any): Observable&lt;any&gt; {
-    const headers &#x3D; new HttpHeaders({ &#x27;Content-Type&#x27;: &#x27;application/json&#x27; });
-    return this.http.post(this.apiUrl, dpiData, { headers });
+  createDPI(dpiData:any): Observable&lt;any&gt; {
+    return this.http.post(this.apiUrl, dpiData);
   }
+
 }
+
 </code></pre>
     </div>
 

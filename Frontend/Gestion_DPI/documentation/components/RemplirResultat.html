@@ -1144,10 +1144,7 @@ export class GenererGraphe implements OnInit{
     this.dialogRef.close();
   }
   
-}
-
-
-</code></pre>
+}</code></pre>
     </div>
 
     <div class="tab-pane fade " id="templateData">
@@ -1168,17 +1165,17 @@ export class GenererGraphe implements OnInit{
       &lt;div *ngFor&#x3D;&quot;let div of divs; let i &#x3D; index&quot; class&#x3D;&quot;add-params&quot;&gt;
         &lt;div&gt;
           &lt;label for&#x3D;&quot;name-{{ div.id }}&quot;&gt;Paramètre&lt;/label&gt;
-          &lt;select id&#x3D;&quot;name-{{ div.id }}&quot; [(ngModel)]&#x3D;&quot;div.parametre&quot; name&#x3D;&quot;param-{{ div.id }}&quot; placeholder&#x3D;&quot;Choisir un paramètre&quot; required&gt;
+          &lt;select id&#x3D;&quot;name-{{ div.id }}&quot; [(ngModel)]&#x3D;&quot;div.parametre&quot; name&#x3D;&quot;param-{{ div.id }}&quot; placeholder&#x3D;&quot;Choisir un paramètre&quot;&gt;
             &lt;option *ngFor&#x3D;&quot;let param of params&quot; [value]&#x3D;&quot;param.name&quot;&gt;{{ param.name }}&lt;/option&gt;
           &lt;/select&gt;
         &lt;/div&gt;
         &lt;div&gt;
           &lt;label for&#x3D;&quot;value-{{ div.id }}&quot;&gt;Valeur&lt;/label&gt;
-          &lt;input id&#x3D;&quot;value-{{ div.id }}&quot; [(ngModel)]&#x3D;&quot;div.valeur&quot; placeholder&#x3D;&quot;Valeur mesuré&quot; name&#x3D;&quot;valeur-{{ div.id }}&quot; required&gt;
+          &lt;input id&#x3D;&quot;value-{{ div.id }}&quot; [(ngModel)]&#x3D;&quot;div.valeur&quot; placeholder&#x3D;&quot;Valeur mesuré&quot; name&#x3D;&quot;valeur-{{ div.id }}&quot;&gt;
         &lt;/div&gt;
         &lt;div&gt;
           &lt;label for&#x3D;&quot;value-{{ div.id }}&quot;&gt;Date&lt;/label&gt;
-          &lt;input id&#x3D;&quot;value-{{ div.id }}&quot; [(ngModel)]&#x3D;&quot;div.date&quot; placeholder&#x3D;&quot;Date&quot; name&#x3D;&quot;date-{{ div.id }}&quot; type&#x3D;&quot;date&quot; required&gt;
+          &lt;input id&#x3D;&quot;value-{{ div.id }}&quot; [(ngModel)]&#x3D;&quot;div.date&quot; placeholder&#x3D;&quot;Date&quot; name&#x3D;&quot;date-{{ div.id }}&quot; type&#x3D;&quot;date&quot;&gt;
         &lt;/div&gt;
         &lt;button (click)&#x3D;&quot;deleteDiv(div.id)&quot;&gt;Delete&lt;/button&gt;
       &lt;/div&gt;
@@ -1220,7 +1217,7 @@ export class GenererGraphe implements OnInit{
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><head>  <link rel="stylesheet" href="./page-laborantin.component.css"></head><div class="header-dialog">  <h2 mat-dialog-title >Saisie des Paramètres Mesurés</h2>  <mat-dialog-actions class="close-icon">    <button mat-button (click)="onNoClick()"><img src="../../assets/images/close.svg" alt="close-icon"></button>  </mat-dialog-actions></div><mat-dialog-content class="dialog-content">  <h3 class="content-title">Ajout des valeurs mesurées lors de l’examen</h3>  <button (click)="ajouter()"><img src="../../assets/images/Plus.svg" alt="plus">Ajouter un Paramètre </button>  <h4>Résultats ajoutés :</h4>    <form >      <div *ngFor="let div of divs; let i = index" class="add-params">        <div>          <label for="name-{{ div.id }}">Paramètre</label>          <select id="name-{{ div.id }}" [(ngModel)]="div.parametre" name="param-{{ div.id }}" placeholder="Choisir un paramètre" required>            <option *ngFor="let param of params" [value]="param.name">{{ param.name }}</option>          </select>        </div>        <div>          <label for="value-{{ div.id }}">Valeur</label>          <input id="value-{{ div.id }}" [(ngModel)]="div.valeur" placeholder="Valeur mesuré" name="valeur-{{ div.id }}" required>        </div>        <div>          <label for="value-{{ div.id }}">Date</label>          <input id="value-{{ div.id }}" [(ngModel)]="div.date" placeholder="Date" name="date-{{ div.id }}" type="date" required>        </div>        <button (click)="deleteDiv(div.id)">Delete</button>      </div>      <mat-dialog-actions class="buttons">        <button (click)="openDialog_genererGraphe()" [ngClass]="{\'enabled-button\': !isDisable, \'disabled-button\': isDisable}" [disabled] = "isDisable"><img src="../../assets/images/Bar chart.svg" alt="bar-chart">Générer des Graphiques de Tendance</button>        <button mat-button type="reset">Annuler</button>        <button mat-button  cdkFocusInitial type="submit" (click)="enregistrer()">Enregistrer</button>      </mat-dialog-actions>    </form></mat-dialog-content></div>'
+        var COMPONENT_TEMPLATE = '<div><head>  <link rel="stylesheet" href="./page-laborantin.component.css"></head><div class="header-dialog">  <h2 mat-dialog-title >Saisie des Paramètres Mesurés</h2>  <mat-dialog-actions class="close-icon">    <button mat-button (click)="onNoClick()"><img src="../../assets/images/close.svg" alt="close-icon"></button>  </mat-dialog-actions></div><mat-dialog-content class="dialog-content">  <h3 class="content-title">Ajout des valeurs mesurées lors de l’examen</h3>  <button (click)="ajouter()"><img src="../../assets/images/Plus.svg" alt="plus">Ajouter un Paramètre </button>  <h4>Résultats ajoutés :</h4>    <form >      <div *ngFor="let div of divs; let i = index" class="add-params">        <div>          <label for="name-{{ div.id }}">Paramètre</label>          <select id="name-{{ div.id }}" [(ngModel)]="div.parametre" name="param-{{ div.id }}" placeholder="Choisir un paramètre">            <option *ngFor="let param of params" [value]="param.name">{{ param.name }}</option>          </select>        </div>        <div>          <label for="value-{{ div.id }}">Valeur</label>          <input id="value-{{ div.id }}" [(ngModel)]="div.valeur" placeholder="Valeur mesuré" name="valeur-{{ div.id }}">        </div>        <div>          <label for="value-{{ div.id }}">Date</label>          <input id="value-{{ div.id }}" [(ngModel)]="div.date" placeholder="Date" name="date-{{ div.id }}" type="date">        </div>        <button (click)="deleteDiv(div.id)">Delete</button>      </div>      <mat-dialog-actions class="buttons">        <button (click)="openDialog_genererGraphe()" [ngClass]="{\'enabled-button\': !isDisable, \'disabled-button\': isDisable}" [disabled] = "isDisable"><img src="../../assets/images/Bar chart.svg" alt="bar-chart">Générer des Graphiques de Tendance</button>        <button mat-button type="reset">Annuler</button>        <button mat-button  cdkFocusInitial type="submit" (click)="enregistrer()">Enregistrer</button>      </mat-dialog-actions>    </form></mat-dialog-content></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BilanBiologiqueComponent', 'selector': 'app-bilan-biologique'},{'name': 'BilanBiologiqueComponent', 'selector': 'app-bilan-biologique'},{'name': 'BilanRadiologiqueComponent', 'selector': 'app-bilan-radiologique'},{'name': 'BilanRadiologiqueComponent', 'selector': 'app-bilan-radiologique'},{'name': 'ConsultationHomeComponent', 'selector': 'app-consultation-home'},{'name': 'ConsulterDpiComponent', 'selector': 'app-consulter-dpi'},{'name': 'CreationDPIComponent', 'selector': 'app-creation-dpi'},{'name': 'FenetreRadiologueComponent', 'selector': 'app-fenetre-radiologue'},{'name': 'GenererGraphe', 'selector': 'dialog-generer-graphe'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LandingPageComponent', 'selector': 'app-landing-page'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MainHeaderComponent', 'selector': 'app-main-header'},{'name': 'OrdonnanceComponent', 'selector': 'app-ordonnance'},{'name': 'OrdonnanceComponent', 'selector': 'app-ordonnance'},{'name': 'PageInfirmierComponent', 'selector': 'app-page-infirmier'},{'name': 'PageLaborantinComponent', 'selector': 'app-page-laborantin'},{'name': 'PageRadiologueComponent', 'selector': 'app-page-radiologue'},{'name': 'PatientSelectionComponent', 'selector': 'app-patient-selection'},{'name': 'RecherchePatientComponent', 'selector': 'app-recherche-patient'},{'name': 'RemplirResultat', 'selector': 'dialog-remplir-resultat'},{'name': 'ResumeComponent', 'selector': 'app-resume'},{'name': 'ResumeComponent', 'selector': 'app-resume'},{'name': 'SoinFormComponent', 'selector': 'app-soin-form'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'RemplirResultat'};

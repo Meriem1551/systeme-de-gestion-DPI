@@ -138,8 +138,12 @@ import { BilanBiologiqueComponent } from &#x27;./bilan-biologique/bilan-biologiq
 import { BilanRadiologiqueComponent } from &#x27;./bilan-radiologique/bilan-radiologique.component&#x27;;
 import { PageRadiologueComponent } from &#x27;./Radiologue/page-radiologue/page-radiologue.component&#x27;;
 import { PageLaborantinComponent } from &#x27;./page-laborantin/page-laborantin.component&#x27;;
+import { LandingPageComponent } from &#x27;./landing-page/landing-page.component&#x27;;
+import { LoginComponent } from &#x27;./login/login.component&#x27;;
 
 const routes: Routes &#x3D; [
+  { path: &#x27;&#x27;, component: LandingPageComponent},
+  { path: &#x27;login&#x27;, component: LoginComponent },
   { path: &#x27;resume&#x27;, component: ResumeComponent },
   { path: &#x27;ordonnance&#x27;, component: OrdonnanceComponent },
   { path: &#x27;bilan-biologique&#x27;, component: BilanBiologiqueComponent },
